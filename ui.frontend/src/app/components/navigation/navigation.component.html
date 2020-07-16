@@ -1,0 +1,4 @@
+<ul *ngIf="navigationLinks && navigationLinks.length > 0" class="navigation__group">
+    <ng-container *ngTemplateOutlet="recursiveListTmpl; context:{ links: navigationLinks }"></ng-container>
+</ul>
+
