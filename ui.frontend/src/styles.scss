@@ -1,0 +1,24 @@
+/* styles.scss * /
+
+/* Normalize */
+@import '~normalize-scss/sass/normalize';
+
+@import './styles/variables';
+
+body {
+    background-color: $body-bg;
+    font-family: $font-family-base;
+    margin: 0;
+    padding: 0;
+    font-size: $font-size-base;
+    text-align: left;
+    color: $text-color;
+    line-height: $line-height-base;
+}
+
+body.page {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $gutter-padding;
+    padding-top: $header-height;
+}
