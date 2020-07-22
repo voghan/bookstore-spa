@@ -27,6 +27,7 @@ import { TextComponent } from './components/text/text.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImageComponent } from './components/image/image.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   imports: [
@@ -35,8 +36,8 @@ import { ImageComponent } from './components/image/image.component';
     AppRoutingModule
   ],
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
-  declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent],
-  entryComponents: [TextComponent, PageComponent, ImageComponent],
+  declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent, NavigationComponent],
+  entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
