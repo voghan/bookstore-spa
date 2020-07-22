@@ -6,9 +6,7 @@
             <span></span>
         </button>
         <div class="logo">
-            <a [routerLink]="homePageUrl">
-                <img class="logo-img" src="assets/img/wknd-logo-dk.png" alt="Bookstore SPA" />
-            </a>
+            <a [routerLink]="homePageUrl">Bookstore SPA</a>
         </div>
         <button *ngIf="!isHome" class="backbutton" aria-label="Return to previous page" (click)="onBackClick()">
             <img class="backbutton-icon" src="assets/img/icon-back.svg" alt="Return" />
