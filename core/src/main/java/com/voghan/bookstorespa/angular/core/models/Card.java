@@ -5,6 +5,7 @@ import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.models.Image;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
@@ -16,6 +17,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
 
 import javax.annotation.PostConstruct;
+import java.util.Calendar;
 
 @Model(adaptables = SlingHttpServletRequest.class, adapters = { Card.class,
         ComponentExporter.class }, resourceType = Card.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -59,6 +61,9 @@ public class Card implements Image {
         // Note that @PostConstruct code will always be executed on Model instantiation.
         // If the work done in PostConstruct is expensive and not always used in the consumption of the model, it is
         // better to lazy-execute the logic in the getter and persist the result in  model state if it is requested again.
+        if(StringUtils.isNotBlank(cardPath) && pageManager != null) {
+            cardPage = pageManager.getPage(this.cardPath);
+        }
     }
 
     @Override
@@ -84,5 +89,30 @@ public class Card implements Image {
     @Override
     public String getExportedType() {
         return Card.RESOURCE_TYPE;
+    }
+
+    public String getCtaLinkURL() {
+        if(cardPage != null) {
+            return cardPage.getPath() + ".html";
+        }
+        return null;
+    }
+
+    public String getCtaText() {
+        return ctaText;
+    }
+
+    public Calendar getCardLastModified() {
+       if(cardPage != null) {
+           return cardPage.getLastModified();
+       }
+       return null;
+    }
+
+    public String getCardTitle() {
+        if(titleFromPage) {
+            return cardPage != null ? cardPage.getTitle() : null;
+        }
+        return cardTitle;
     }
 }
