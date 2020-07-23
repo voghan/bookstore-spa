@@ -183,5 +183,9 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <artifactId>core.wcm.components.core</artifactId>
+            <groupId>com.adobe.cq</groupId>
+        </dependency>
     </dependencies>
 </project>
