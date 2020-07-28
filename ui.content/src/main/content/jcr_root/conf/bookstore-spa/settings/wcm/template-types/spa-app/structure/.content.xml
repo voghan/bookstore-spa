@@ -3,9 +3,6 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:lastModified="{Date}2017-12-07T16:50:03.215+05:30"
-        cq:lastModifiedBy="admin"
-        cq:template="/conf/bookstore-spa/settings/wcm/templates/spa-app-template"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="bookstore-spa/components/structure/spa">
         <root

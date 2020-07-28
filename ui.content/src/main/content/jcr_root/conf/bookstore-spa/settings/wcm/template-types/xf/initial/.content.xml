@@ -9,7 +9,7 @@
         sling:resourceType="bookstore-spa/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="bookstore-spa/components/container"
+            sling:resourceType="bookstore-spa/components/content/container"
             layout="responsiveGrid"/>
     </jcr:content>
 </jcr:root>

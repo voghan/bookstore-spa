@@ -7,13 +7,13 @@
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="bookstore-spa/components/page">
+        sling:resourceType="bookstore-spa/components/structure/page">
         <logo
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="bookstore-spa/components/logo"/>
+            sling:resourceType="bookstore-spa/components/content/logo"/>
         <title
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="bookstore-spa/components/title"/>
+            sling:resourceType="bookstore-spa/components/content/title"/>
         <topnav
             jcr:primaryType="nt:unstructured"
             sling:resourceType="bookstore-spa/components/topnav"/>

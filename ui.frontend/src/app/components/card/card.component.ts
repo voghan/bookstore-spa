@@ -46,4 +46,4 @@ export class CardComponent implements OnInit {
 
 }
 
-MapTo('bookstore-spa/components/card')(CardComponent, CardEditConfig);
+MapTo('bookstore-spa/components/content/card')(CardComponent, CardEditConfig);

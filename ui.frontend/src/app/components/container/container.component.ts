@@ -19,4 +19,4 @@ import {
   MapTo
 } from '@adobe/cq-angular-editable-components';
 
-MapTo('bookstore-spa/components/spa')(AEMContainerComponent);
+MapTo('bookstore-spa/components/structure/spa')(AEMContainerComponent);
