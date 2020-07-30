@@ -19,9 +19,17 @@ import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_T
 
 import javax.annotation.PostConstruct;
 
+import com.adobe.cq.export.json.ComponentExporter;
+import com.adobe.cq.export.json.ExporterConstants;
+import com.citytechinc.cq.component.annotations.Component;
+import com.citytechinc.cq.component.annotations.DialogField;
+import com.citytechinc.cq.component.annotations.widgets.TextField;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Default;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
@@ -34,8 +42,12 @@ import com.day.cq.wcm.api.PageManager;
 
 import java.util.Optional;
 
-@Model(adaptables = Resource.class)
-public class HelloWorldModel {
+@Component(value = "Hello World", group = "BookStore Spa - Content")
+@Model(adaptables = SlingHttpServletRequest.class, adapters = { HelloWorld.class,
+        ComponentExporter.class }, resourceType = HelloWorld.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
+public class HelloWorld {
+    static final String RESOURCE_TYPE = "bookstore-spa/components/content/helloworld";
 
     @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
     @Default(values="No resourceType")
@@ -48,6 +60,8 @@ public class HelloWorldModel {
     @SlingObject
     private ResourceResolver resourceResolver;
 
+    @DialogField(fieldLabel = "Title", ranking = 4D, required = true)
+    @TextField
     private String message;
 
     @PostConstruct

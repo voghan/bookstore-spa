@@ -31,6 +31,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { CustomComponent } from './components/custom/custom.component';
 import { CardComponent } from './components/card/card.component';
 import { TeaserComponent } from './components/teaser/teaser.component';
+import { HelloworldComponent } from './components/helloworld/helloworld.component';
 
 @NgModule({
   imports: [
@@ -40,9 +41,9 @@ import { TeaserComponent } from './components/teaser/teaser.component';
   ],
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
   declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent,
-    NavigationComponent, CustomComponent, CardComponent, TeaserComponent],
+    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, HelloworldComponent],
   entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent, CustomComponent,
-    TeaserComponent],
+    TeaserComponent, HelloworldComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

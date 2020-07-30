@@ -21,6 +21,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Collections;
 import java.util.concurrent.Callable;
 
+import com.voghan.bookstorespa.angular.core.models.HelloWorld;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
@@ -32,8 +33,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.voghan.bookstorespa.angular.core.models.HelloWorldModel;
-
 /** 
  *  Test case which uses OSGi services injection
  *  
@@ -43,7 +42,7 @@ import com.voghan.bookstorespa.angular.core.models.HelloWorldModel;
 @RunWith(SlingAnnotationsTestRunner.class)
 // ignore possible null pointer exceptions, deprecation warnings, loginAdmin usage, and generic exceptions
 @SuppressWarnings({"squid:S2259", "squid:CallToDeprecatedMethod", "AEM Rules:AEM-11", "squid:S00112"})
-public class HelloWorldModelServerSideTest {
+public class HelloWorldServerSideTest {
 
     @TestReference
     private ResourceResolverFactory rrf;
@@ -86,7 +85,7 @@ public class HelloWorldModelServerSideTest {
             protected void call0(ResourceResolver rr) throws Exception {
                 Resource testResource = rr.getResource("/tmp/testResource");
                 
-                HelloWorldModel hello = testResource.adaptTo(HelloWorldModel.class);
+                HelloWorld hello = testResource.adaptTo(HelloWorld.class);
                 
                 assertNotNull("Expecting HelloWorldModel to be adapted from Resource", hello);
 
