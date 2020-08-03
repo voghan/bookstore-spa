@@ -50,4 +50,4 @@ export class HeaderComponent implements OnInit {
 
 }
 
-MapTo('bookstore-spa/components/header')(HeaderComponent, HeaderEditConfig);
+MapTo('bookstore-spa/components/structure/header')(HeaderComponent, HeaderEditConfig);

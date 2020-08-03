@@ -23,7 +23,7 @@ import java.util.Calendar;
         ComponentExporter.class }, resourceType = Card.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class Card implements Image {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/card";
+    static final String RESOURCE_TYPE = "bookstore-spa/components/content/card";
 
     @Self
     private SlingHttpServletRequest request;

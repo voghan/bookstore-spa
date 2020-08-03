@@ -11,6 +11,9 @@ $gray-lighter:           #F7F7F7;
 $white:                  #FFFFFF;
 $yellow:                 #FFEA00;
 $blue:                   #0045FF;
+$orchid:                 #747ca8;
+$lavender:               #989ebe;
+$haze:                   #e8e9f0;
 
 //== Typography
 //
@@ -41,8 +44,8 @@ $line-height-base:        1.1;
 $line-height-computed:    floor(($font-size-base * $line-height-base));
 
 // Functional Colors
-$brand-primary:             $yellow;
-$body-bg:                   $white;
+$brand-primary:             $orchid;
+$body-bg:                   $haze;
 $text-color:                $black;
 $text-color-inverse:        $gray-light;
 $link-color:                $blue;

@@ -1,0 +1,13 @@
+<div class="teaser"  *ngIf="hasContent">
+    <app-image class="teaser__image" [src]="src" [alt]="alt" [title]="title"></app-image>
+    <div class="teaser__content">
+        <h2 class="teaser__title">
+            {{teaserTitle}}
+        </h2>
+        <div class="teaser__action-container" *ngIf="hasCTA">
+            <a [routerLink]="ctaLinkURL" class="teaser__action-link" [title]="ctaText">
+                {{ctaText}}
+            </a>
+        </div>
+    </div>
+</div>

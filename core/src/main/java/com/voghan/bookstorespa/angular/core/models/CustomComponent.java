@@ -13,7 +13,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
         ComponentExporter.class }, resourceType = CustomComponent.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class CustomComponent implements ComponentExporter {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/customcomponent";
+    static final String RESOURCE_TYPE = "bookstore-spa/components/content/customcomponent";
 
     @ValueMapValue
     private String message;
