@@ -3,4 +3,4 @@
           jcr:primaryType="cq:Component"
           jcr:title="Header"
           sling:resourceSuperType="bookstore-spa/components/structure/navigation"
-          componentGroup="Bookstore SPA Angular - Structure"/>
+          componentGroup="BookStore Spa - Structure"/>
