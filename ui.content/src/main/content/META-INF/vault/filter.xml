@@ -3,5 +3,4 @@
     <filter root="/conf/bookstore-spa" mode="merge"/>
     <filter root="/content/bookstore-spa" mode="merge"/>
     <filter root="/content/dam/bookstore-spa" mode="merge"/>
-    <filter root="/content/experience-fragments/bookstore-spa" mode="merge"/>
 </workspaceFilter>

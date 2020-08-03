@@ -187,5 +187,12 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>core.wcm.components.core</artifactId>
             <groupId>com.adobe.cq</groupId>
         </dependency>
+
+        <!-- Component annotations -->
+        <dependency>
+            <groupId>com.citytechinc.cq.cq-component-plugin</groupId>
+            <artifactId>cq-component-annotations</artifactId>
+            <version>${component.plugin.version}</version>
+        </dependency>
     </dependencies>
 </project>
