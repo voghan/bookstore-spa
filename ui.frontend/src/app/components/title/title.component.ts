@@ -1,5 +1,5 @@
 import { MapTo } from '@adobe/cq-angular-editable-components';
-import { Component, Input, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, ViewChild, TemplateRef } from '@angular/core';
 
 const TitleEditConfig = {
   emptyLabel: 'Title',
@@ -12,7 +12,7 @@ const TitleEditConfig = {
   templateUrl: './title.component.html',
   styleUrls: ['./title.component.scss']
 })
-export class TitleComponent implements OnInit {
+export class TitleComponent implements OnInit, AfterViewInit {
 
   @Input() text: string;
   @Input() linkURL: string;
@@ -29,10 +29,16 @@ export class TitleComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.titleTemplate = this.titleOnlyTpl;
+  }
+
+  ngAfterViewInit(): void {
+    if ( this.hasLink ) {
+      this.titleTemplate = this.titleLinkTpl;
+    } else {
+      this.titleTemplate = this.titleOnlyTpl;
+    }
+
     console.log('titleTemplate-' + this.titleTemplate);
-    console.log('titleOnlyTpl-' + this.titleOnlyTpl);
-    console.log('titleLinkTpl-' + this.titleLinkTpl);
   }
 
   get hasLink(): boolean {

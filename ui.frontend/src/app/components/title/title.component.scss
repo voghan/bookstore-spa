@@ -4,6 +4,14 @@
   display: block;
 }
 
-.title__text__default {
+.title__text-default {
      color: $red;
+}
+
+.title__text {
+    color: $orchid;
+}
+
+.title__text-link {
+    color: $haze;
 }

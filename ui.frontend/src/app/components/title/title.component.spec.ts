@@ -16,6 +16,7 @@ describe('TitleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TitleComponent);
     component = fixture.componentInstance;
+    component.ngAfterViewInit();
     fixture.detectChanges();
   });
 

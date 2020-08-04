@@ -8,6 +8,7 @@ import com.citytechinc.cq.component.annotations.DialogField;
 import com.citytechinc.cq.component.annotations.Listener;
 import com.citytechinc.cq.component.annotations.Tab;
 import com.citytechinc.cq.component.annotations.widgets.CheckBox;
+import com.citytechinc.cq.component.annotations.widgets.PathField;
 import com.citytechinc.cq.component.annotations.widgets.TextField;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -65,7 +66,7 @@ public class CustomTitle implements Title {
 
     @DialogField(fieldLabel = "Link URL", fieldDescription = "Links the title. Path to a content page, external URL or page anchor.",
             ranking = 3D)
-    @TextField
+    @PathField(rootPath = "/content/bookstore-spa/us/en")
     @Override
     public String getLinkURL() {
         return linkUrl;
