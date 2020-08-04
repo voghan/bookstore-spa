@@ -1,3 +1,24 @@
-<div class="title">
-    <h1 class="title__text">{{text}}</h1>
-</div>
+<ng-container *ngTemplateOutlet="titleTemplate ? titleTemplate : default"></ng-container>
+
+
+<ng-template #default>
+    <div class="title">
+        <h1 class="title__text__default">{{text}}</h1>
+    </div>
+</ng-template>
+
+<ng-template #titleOnly>
+    <div class="title">
+        <h1 class="title__text">{{text}}</h1>
+    </div>
+</ng-template>
+
+<ng-template #titleLink>
+    <div class="title">
+        <h1 class="title__text">
+            <a [routerLink]="linkURL" [title]="text">
+                {{text}}
+            </a>
+        </h1>
+    </div>
+</ng-template>

@@ -1,3 +1,9 @@
+@import "~src/styles/variables";
+
 :host-context {
   display: block;
+}
+
+.title__text__default {
+     color: $red;
 }
