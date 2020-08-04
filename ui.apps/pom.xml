@@ -146,6 +146,7 @@
                     <componentPathBase>jcr_root/apps/bookstore-spa/components</componentPathBase>
                     <defaultComponentGroup>BookStore Spa - Content</defaultComponentGroup>
                     <transformerName>lower-case</transformerName>
+                    <generateClassicUiDialogs>false</generateClassicUiDialogs>
                     <additionalFeatures>
                         <additionalFeature>rte-touchui</additionalFeature>
                         <additionalFeature>tagspickerwidget</additionalFeature>
