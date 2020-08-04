@@ -46,7 +46,7 @@ import java.util.Optional;
 @Model(adaptables = SlingHttpServletRequest.class, adapters = { HelloWorld.class,
         ComponentExporter.class }, resourceType = HelloWorld.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
-public class HelloWorld {
+public class HelloWorld implements ComponentExporter {
     static final String RESOURCE_TYPE = "bookstore-spa/components/content/helloworld";
 
     @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
@@ -81,4 +81,8 @@ public class HelloWorld {
         return message;
     }
 
+    @Override
+    public String getExportedType() {
+        return RESOURCE_TYPE;
+    }
 }

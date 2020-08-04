@@ -1,6 +1,16 @@
-# Sample AEM project template
+# BookStore SPA Angular AEM project
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+This is an AEM project utilizing the SPA Editor for Angular.  It is built for AEM 6.5 and uses components using Angular 
+for the frontend templating logic.  This application is also using CQ Compoment Maven plugin to generate the component
+dialogs.
+
+Traditional AEM components will not display inside of a SPA Editor application.  The components are required to have an 
+Angular component mapped to the AEM component.
+    
+    MapTo('bookstore-spa/components/content/title')(
+      TitleComponent,
+      TitleEditConfig
+    ); 
 
 ## Modules
 
@@ -34,6 +44,12 @@ Or alternatively
 Or to deploy only the bundle to the author, run
 
     mvn clean install -PautoInstallBundle
+
+## Angular
+Install Angular in the ui.frontend module
+
+    npm install -g @angular/cli
+
 
 ## Testing
 
