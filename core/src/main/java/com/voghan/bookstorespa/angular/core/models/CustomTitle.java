@@ -10,11 +10,15 @@ import com.citytechinc.cq.component.annotations.Tab;
 import com.citytechinc.cq.component.annotations.widgets.CheckBox;
 import com.citytechinc.cq.component.annotations.widgets.PathField;
 import com.citytechinc.cq.component.annotations.widgets.TextField;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -27,33 +31,36 @@ import javax.annotation.PostConstruct;
         inPlaceEditingConfigPath="/apps/core/wcm/components/title/v2/title",
         listeners = @Listener( name="afteredit", value = "REFRESH_PAGE"),
         tabs = { @Tab(title = "Properties")})
-@Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomComponent.class,
+@Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomTitle.class,
         ComponentExporter.class }, resourceType = CustomTitle.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class CustomTitle implements Title {
     static final String RESOURCE_TYPE = "bookstore-spa/components/content/title";
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(CustomTitle.class);
 
     @ValueMapValue
     private String text;
 
-    @ValueMapValue
+    @ValueMapValue(name = "linkURL")
     private String linkUrl;
 
     @ValueMapValue
     private boolean linkDisabled;
 
     @SlingObject
-    private ResourceResolver resourceResolver;
-
-    @SlingObject
     private SlingHttpServletRequest servletRequest;
 
-    @PostConstruct
-    protected void init() {
-        logger.info(".....BFV     servletRequest.... " + servletRequest );
+    @ScriptVariable
+    PageManager pageManager;
 
+    private Page linkPage;
+
+    @PostConstruct
+    public void initModel() {
+        if(StringUtils.isNotBlank(linkUrl) && pageManager != null) {
+            linkPage = pageManager.getPage(this.linkUrl);
+        }
     }
 
     @DialogField(fieldLabel = "Title", fieldDescription = "Leave empty to use the page title.",
@@ -61,6 +68,10 @@ public class CustomTitle implements Title {
     @TextField
     @Override
     public String getText() {
+        if (StringUtils.isBlank(text) && linkPage != null) {
+            text = linkPage.getTitle();
+        }
+        logger.info("**************** text -" + text);
         return text;
     }
 

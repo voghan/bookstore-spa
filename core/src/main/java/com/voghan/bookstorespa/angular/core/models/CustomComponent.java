@@ -11,6 +11,10 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
 
 @Component(value = "Custom Component", group = "BookStore Spa - Content")
 @Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomComponent.class,
@@ -19,8 +23,13 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public class CustomComponent implements ComponentExporter {
     static final String RESOURCE_TYPE = "bookstore-spa/components/content/customcomponent";
 
+    private final Logger logger = LoggerFactory.getLogger(CustomComponent.class);
     @ValueMapValue
     private String message;
+
+    @PostConstruct
+    public void initModel() {
+    }
 
     @DialogField(fieldLabel = "Title", ranking = 4D, required = true)
     @TextField

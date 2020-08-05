@@ -15,6 +15,8 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.Calendar;
@@ -24,6 +26,8 @@ import java.util.Calendar;
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class Card implements Image {
     static final String RESOURCE_TYPE = "bookstore-spa/components/content/card";
+
+    private final Logger logger = LoggerFactory.getLogger(Card.class);
 
     @Self
     private SlingHttpServletRequest request;
@@ -56,11 +60,7 @@ public class Card implements Image {
     private Page cardPage;
 
     @PostConstruct
-    // PostConstructs are called after all the injection has occurred, but before the Model object is returned for use.
     public void initModel() {
-        // Note that @PostConstruct code will always be executed on Model instantiation.
-        // If the work done in PostConstruct is expensive and not always used in the consumption of the model, it is
-        // better to lazy-execute the logic in the getter and persist the result in  model state if it is requested again.
         if(StringUtils.isNotBlank(cardPath) && pageManager != null) {
             cardPage = pageManager.getPage(this.cardPath);
         }
