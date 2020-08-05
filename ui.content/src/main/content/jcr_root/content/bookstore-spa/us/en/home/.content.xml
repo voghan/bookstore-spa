@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          jcr:primaryType="cq:Page">
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2018-10-04T09:50:29.650+02:00"
-        cq:lastModifiedBy="admin"
         cq:template="/conf/bookstore-spa/settings/wcm/templates/spa-page-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
         jcr:title="BookStore Spa Home Page"
-        sling:resourceType="bookstore-spa/components/page">
+        jcr:uuid="217fe857-7efa-4a0f-bdfc-3259a605c1b9"
+        sling:resourceType="bookstore-spa/components/structure/page">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid">
@@ -16,12 +17,69 @@
                 sling:resourceType="wcm/foundation/components/responsivegrid">
                 <text
                     jcr:primaryType="nt:unstructured"
-                    sling:resourceType="bookstore-spa/components/text"
+                    sling:resourceType="bookstore-spa/components/content/text"
                     text="&lt;p>Hello World!&lt;/p>"
                     textIsRich="true">
                     <cq:responsive jcr:primaryType="nt:unstructured"/>
                 </text>
+                <title
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="bookstore-spa/components/content/title"/>
+                <card_authors
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="bookstore-spa/components/content/card"
+                    altValueFromDAM="true"
+                    cardPath="/content/bookstore-spa/us/en/home/authors"
+                    ctaText="Learn more..."
+                    displayPopupTitle="true"
+                    fileReference="/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg"
+                    isDecorative="false"
+                    titleFromPage="true"
+                    titleValueFromDAM="false">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="4"/>
+                    </cq:responsive>
+                </card_authors>
+                <card_books
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="bookstore-spa/components/content/card"
+                    cardPath="/content/bookstore-spa/us/en/home/books"
+                    ctaText="Learn more..."
+                    displayPopupTitle="true"
+                    fileReference="/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg"
+                    isDecorative="false"
+                    titleFromPage="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="4"/>
+                    </cq:responsive>
+                </card_books>
+                <card_about_us
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="bookstore-spa/components/content/card"
+                    cardPath="/content/bookstore-spa/us/en/home/about-us"
+                    ctaText="Learn more..."
+                    displayPopupTitle="true"
+                    fileReference="/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg"
+                    isDecorative="false"
+                    titleFromPage="true">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="0"
+                            width="4"/>
+                    </cq:responsive>
+                </card_about_us>
             </responsivegrid>
         </root>
     </jcr:content>
+    <books/>
+    <authors/>
+    <search/>
+    <about-us/>
 </jcr:root>

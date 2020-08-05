@@ -27,4 +27,4 @@ export class ImageComponent implements OnInit {
   ngOnInit() { }
 }
 
-MapTo('bookstore-spa/components/image')(ImageComponent, ImageEditConfig);
+MapTo('bookstore-spa/components/content/image')(ImageComponent, ImageEditConfig);

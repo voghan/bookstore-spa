@@ -130,6 +130,35 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>com.citytechinc.cq.cq-component-plugin</groupId>
+                <artifactId>cq-component-maven-plugin</artifactId>
+                <version>${component.plugin.version}</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>component</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <componentPathBase>jcr_root/apps/bookstore-spa/components</componentPathBase>
+                    <defaultComponentGroup>BookStore Spa - Content</defaultComponentGroup>
+                    <transformerName>lower-case</transformerName>
+                    <generateClassicUiDialogs>false</generateClassicUiDialogs>
+                    <additionalFeatures>
+                        <additionalFeature>rte-touchui</additionalFeature>
+                        <additionalFeature>tagspickerwidget</additionalFeature>
+                    </additionalFeatures>
+                    <excludeDependencies>
+                        <excludeDependency>
+                            <groupId>com.icfolson.aem.harbor</groupId>
+                            <artifactId>harbor-core</artifactId>
+                        </excludeDependency>
+                    </excludeDependencies>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

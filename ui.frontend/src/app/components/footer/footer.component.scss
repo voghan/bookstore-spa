@@ -1,0 +1,9 @@
+@import "~src/styles/variables";
+
+:host-context {
+    display: block;
+}
+
+.footer {
+    background-color: $lavender;
+}

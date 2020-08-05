@@ -1,0 +1,17 @@
+@import "~src/styles/variables";
+
+:host-context {
+  display: block;
+}
+
+.title__text-default {
+     color: $red;
+}
+
+.title__text {
+    color: $orchid;
+}
+
+.title__text-link {
+    color: $haze;
+}

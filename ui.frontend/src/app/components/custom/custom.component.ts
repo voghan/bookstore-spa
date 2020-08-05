@@ -23,4 +23,4 @@ export class CustomComponent implements OnInit {
 
 }
 
-MapTo('bookstore-spa/components/customcomponent')(CustomComponent, CustomEditConfig);
+MapTo('bookstore-spa/components/content/customcomponent')(CustomComponent, CustomEditConfig);
