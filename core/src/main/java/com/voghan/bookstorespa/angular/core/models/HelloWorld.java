@@ -39,6 +39,8 @@ import org.apache.sling.settings.SlingSettingsService;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
@@ -48,6 +50,8 @@ import java.util.Optional;
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class HelloWorld implements ComponentExporter {
     static final String RESOURCE_TYPE = "bookstore-spa/components/content/helloworld";
+
+    private final Logger logger = LoggerFactory.getLogger(HelloWorld.class);
 
     @ValueMapValue(name=PROPERTY_RESOURCE_TYPE, injectionStrategy=InjectionStrategy.OPTIONAL)
     @Default(values="No resourceType")
