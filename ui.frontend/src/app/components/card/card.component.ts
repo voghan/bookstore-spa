@@ -18,7 +18,8 @@ export class CardComponent implements OnInit {
   @Input() alt: string;
   @Input() title: string;
   @Input() cardTitle: string;
-  @Input() cardLastModified: number;
+  @Input() cardText: string;
+  @Input() cardStyle: string;
   @Input() ctaLinkURL: string;
   @Input() ctaText: string;
 
@@ -30,15 +31,6 @@ export class CardComponent implements OnInit {
 
   get hasCTA(): boolean {
     return this.ctaLinkURL && this.ctaLinkURL.trim().length > 0 && this.ctaText && this.ctaText.trim().length > 0;
-  }
-
-  get lastModifiedDate(): string {
-    const lastModifiedDate = this.cardLastModified ? new Date(this.cardLastModified) : null;
-
-    if (lastModifiedDate) {
-      return lastModifiedDate.toLocaleDateString();
-    }
-    return null;
   }
 
   ngOnInit(): void {
