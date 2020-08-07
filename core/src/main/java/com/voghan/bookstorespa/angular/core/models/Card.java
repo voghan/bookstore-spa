@@ -48,15 +48,15 @@ public class Card implements Image {
     @ValueMapValue
     private String cardTitle;
 
-    /***
-     * Made available via https://docs.adobe.com/content/help/en/experience-manager-htl/using/htl/global-objects.html#java-backed-objects
-     */
+    @ValueMapValue
+    private String cardText;
+
+    @ValueMapValue
+    private String cardStyle;
+
     @ScriptVariable
     PageManager pageManager;
 
-    /***
-     * The underlying page linked by the card
-     */
     private Page cardPage;
 
     @PostConstruct
@@ -84,8 +84,6 @@ public class Card implements Image {
         return image.getTitle();
     }
 
-
-
     @Override
     public String getExportedType() {
         return Card.RESOURCE_TYPE;
@@ -102,17 +100,19 @@ public class Card implements Image {
         return ctaText;
     }
 
-    public Calendar getCardLastModified() {
-       if(cardPage != null) {
-           return cardPage.getLastModified();
-       }
-       return null;
-    }
-
     public String getCardTitle() {
         if(titleFromPage) {
             return cardPage != null ? cardPage.getTitle() : null;
         }
         return cardTitle;
     }
+
+    public String getCardText() {
+        return cardText;
+    }
+
+    public String getCardStyle() {
+        return cardStyle;
+    }
+
 }

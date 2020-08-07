@@ -15,6 +15,7 @@ const CustomEditConfig = {
 export class CustomComponent implements OnInit {
 
   @Input() message: string;
+  @Input() styles: string;
 
   constructor() { }
 

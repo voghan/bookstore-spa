@@ -1,3 +1,25 @@
+@import "~src/styles/variables";
+
 :host-context {
     display: block;
+}
+
+.text__red {
+    color: $red;
+}
+
+.text__grey {
+    color: $gray;
+}
+
+.text__yellow {
+    color: $yellow;
+}
+
+.text__orchid {
+    color: $orchid;
+}
+
+.text__purple {
+    color: $haze;
 }
