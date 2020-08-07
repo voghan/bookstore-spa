@@ -9,6 +9,18 @@
     padding-bottom: $gutter-padding * 2;
 }
 
+.card__large {
+    width: 1400px;
+}
+
+.card__medium {
+    width: 700px;
+}
+
+.card__small {
+    width: 450px;
+}
+
 .card__image {
     max-height: 350px;
     overflow: hidden;
@@ -26,19 +38,11 @@
 }
 
 
-.card__lastmod {
-    font-style: italic;
-    font-size: $font-size-small;
-    padding-right: 1em;
-    padding-top: 1em;
-    float: right;
-}
-
 .card__action-container {
     margin-top: 1em;
     margin-bottom: 1em;
-    float: left;
 }
+
 .card__action-link {
     background-color: $brand-primary;
     text-transform: uppercase;

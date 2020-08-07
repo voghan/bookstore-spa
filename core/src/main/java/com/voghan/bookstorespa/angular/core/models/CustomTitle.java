@@ -54,10 +54,18 @@ public class CustomTitle implements Title {
     @ScriptVariable
     PageManager pageManager;
 
+    @ScriptVariable
+    private Page currentPage;
+
     private Page linkPage;
 
     @PostConstruct
     public void initModel() {
+        //Using currentPage in a SPA app always returns the root page.
+        if (StringUtils.isBlank(text)) {
+            Page page = pageManager.getContainingPage(servletRequest.getResource().getPath());
+            text = StringUtils.defaultIfEmpty(page.getPageTitle(), page.getTitle());
+        }
         if(StringUtils.isNotBlank(linkUrl) && pageManager != null) {
             linkPage = pageManager.getPage(this.linkUrl);
         }
@@ -71,7 +79,6 @@ public class CustomTitle implements Title {
         if (StringUtils.isBlank(text) && linkPage != null) {
             text = linkPage.getTitle();
         }
-        logger.info("**************** text -" + text);
         return text;
     }
 
