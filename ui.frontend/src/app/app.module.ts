@@ -33,6 +33,7 @@ import { CardComponent } from './components/card/card.component';
 import { TeaserComponent } from './components/teaser/teaser.component';
 import { HelloworldComponent } from './components/helloworld/helloworld.component';
 import { TitleComponent } from './components/title/title.component';
+import { SeparatorComponent } from './components/separator/separator.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,8 @@ import { TitleComponent } from './components/title/title.component';
   ],
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
   declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent,
-    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, HelloworldComponent, TitleComponent],
+    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, HelloworldComponent, TitleComponent,
+    SeparatorComponent],
   entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent, CustomComponent,
     TeaserComponent, HelloworldComponent],
   bootstrap: [AppComponent]

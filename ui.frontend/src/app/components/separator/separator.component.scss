@@ -1,0 +1,15 @@
+@import "~src/styles/variables";
+
+:host-context {
+  display: block;
+}
+
+.separator {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.separator__horizontal-rule {
+  border: 1px solid $spring;
+  border-radius: 1px;
+  background: $spring;
+}
