@@ -19,8 +19,6 @@ export class TeaserComponent implements OnInit {
     @Input() description: string;
     @Input() linkURL: string;
     @Input() actionsEnabled: boolean;
-    @Input() imageLinkHidden: boolean;
-    @Input() titleLinkHidden: boolean;
     @Input() imagePath: string;
     @Input() actions: TeaserAction[];
 
@@ -37,6 +35,13 @@ export class TeaserComponent implements OnInit {
       return this.imagePath && this.imagePath.trim().length > 0;
     }
 
+    get teaserContentClass(): string {
+        if (this.hasImage) {
+            return 'teaser__content-has-image';
+        } else {
+            return 'teaser__content-no-image';
+        }
+    }
 }
 
 export class TeaserAction {

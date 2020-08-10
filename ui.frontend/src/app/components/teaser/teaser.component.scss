@@ -11,9 +11,30 @@
     overflow: hidden;
 }
 
-.teaser__content {
+.teaser__image {
+    position: relative;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+.teaser__content-no-image {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    min-height: 10rem;
+    min-width: 15rem;
+    padding: .75rem;
+    font-size: .8125rem;
+}
+
+.teaser__content-has-image {
+    position: absolute;
+    display: block;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
     justify-content: flex-end;
     min-height: 10rem;
     min-width: 15rem;
@@ -24,7 +45,8 @@
 .teaser__action-link {
     border: 1px solid $orchid;
     border-radius: 1px;
-    color: $orchid;
+    background: $orchid;
+    color: $white;
     margin: 1rem .75rem 0 0;
     padding: .5rem 1.125rem;
     font-size: .75rem;
