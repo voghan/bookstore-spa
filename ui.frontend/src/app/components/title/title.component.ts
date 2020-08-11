@@ -16,7 +16,6 @@ export class TitleComponent implements OnInit, AfterViewInit {
 
   @Input() text: string;
   @Input() linkURL: string;
-  @Input() linkDisabled: boolean;
 
   @Input() titleTemplate: TemplateRef<any>;
 
@@ -42,7 +41,7 @@ export class TitleComponent implements OnInit, AfterViewInit {
   }
 
   get hasLink(): boolean {
-    return this.linkURL && this.linkURL.trim().length > 0 && !this.linkDisabled;
+    return this.linkURL && this.linkURL.trim().length > 0;
   }
 
 }

@@ -1,0 +1,44 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Tue Aug 11 2020 15:43:01 GMT-0500",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Card",
+    "cq:template": "/conf/bookstore-spa/settings/wcm/templates/spa-page-template",
+    "jcr:created": "Tue Aug 11 2020 15:43:01 GMT-0500",
+    "cq:lastModified": "Tue Aug 11 2020 15:44:31 GMT-0500",
+    "sling:resourceType": "bookstore-spa/components/structure/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "wcm/foundation/components/responsivegrid",
+      "responsivegrid": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Mon Oct 22 2018 16:48:57 GMT+0530",
+        "jcr:lastModified": "Mon Oct 22 2018 16:49:29 GMT+0530",
+        "sling:resourceType": "wcm/foundation/components/responsivegrid",
+        "card": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "fileReference": "/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue Aug 11 2020 15:43:23 GMT-0500",
+          "cardStyle": "card__medium",
+          "cardTitle": "New for you",
+          "titleFromPage": "false",
+          "cardPath": "/content/bookstore-spa/us/en/home/about-us",
+          "cardText": "Here is some card text you need to know.",
+          "displayPopupTitle": "true",
+          "jcr:lastModified": "Tue Aug 11 2020 15:44:31 GMT-0500",
+          "ctaText": "Learn more...",
+          "sling:resourceType": "bookstore-spa/components/content/card",
+          "isDecorative": "false"
+        }
+      }
+    }
+  }
+}

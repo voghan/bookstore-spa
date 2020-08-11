@@ -31,7 +31,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { CustomComponent } from './components/custom/custom.component';
 import { CardComponent } from './components/card/card.component';
 import { TeaserComponent } from './components/teaser/teaser.component';
-import { HelloworldComponent } from './components/helloworld/helloworld.component';
 import { TitleComponent } from './components/title/title.component';
 import { SeparatorComponent } from './components/separator/separator.component';
 
@@ -43,10 +42,10 @@ import { SeparatorComponent } from './components/separator/separator.component';
   ],
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
   declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent,
-    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, HelloworldComponent, TitleComponent,
+    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, TitleComponent,
     SeparatorComponent],
   entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent, CustomComponent,
-    TeaserComponent, HelloworldComponent],
+    TeaserComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
