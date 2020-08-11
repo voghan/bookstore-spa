@@ -73,7 +73,7 @@ public class CustomTeaser implements Teaser {
 
     @PostConstruct
     public void initModel() {
-        logger.info("......Teaser created...");
+        logger.debug("......Teaser created...");
     }
 
     public String getImagePath() {
@@ -83,7 +83,6 @@ public class CustomTeaser implements Teaser {
     @Override
     public String getTitle() {
         if (titleFromPage) {
-            logger.info("......Teaser titleFromPage...");
             this.title = getTargetPage().getTitle();
         }
         return this.title;
@@ -92,7 +91,6 @@ public class CustomTeaser implements Teaser {
     @Override
     public String getDescription() {
         if (descriptionFromPage) {
-            logger.info("......Teaser descriptionFromPage...");
             this.description = getTargetPage().getDescription();
         }
         return this.description;
