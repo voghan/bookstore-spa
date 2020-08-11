@@ -1,0 +1,139 @@
+{
+  "jcr:primaryType": "dam:Asset",
+  "jcr:mixinTypes": [
+    "mix:referenceable",
+    "mix:versionable"
+  ],
+  "jcr:createdBy": "admin",
+  "jcr:versionHistory": "ad128bf3-f5a0-49c8-a26f-5a0eb6deba12",
+  "jcr:predecessors": [
+    "d129017b-f8ea-4267-8439-c3d31a750ac7"
+  ],
+  "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+  "jcr:baseVersion": "d129017b-f8ea-4267-8439-c3d31a750ac7",
+  "jcr:isCheckedOut": true,
+  "jcr:uuid": "c58c09f6-e382-4698-bfbd-e8c8d37712c8",
+  "jcr:content": {
+    "jcr:primaryType": "dam:AssetContent",
+    "jcr:title": "Gray lava rock formation",
+    "jcr:lastModifiedBy": "admin",
+    "dam:assetState": "processed",
+    "cq:name": "lava-rock-formation.jpg",
+    "jcr:lastModified": "Wed Feb 20 2019 15:21:38 GMT+0100",
+    "cq:parentPath": "/content/dam/core-components-examples/library/sample-assets",
+    "usages": {
+      "jcr:primaryType": "nt:unstructured",
+      "usedBy": [
+        "aem"
+      ],
+      "dam:score": 1,
+      "aem": {
+        "jcr:primaryType": "nt:unstructured",
+        "lastUsed": "Mon Aug 03 2020 11:51:35 GMT-0500",
+        "count": 1
+      }
+    },
+    "renditions": {
+      "jcr:primaryType": "nt:folder",
+      "jcr:createdBy": "admin",
+      "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+      "cq5dam.thumbnail.48.48.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Wed Jul 29 2020 19:33:01 GMT-0500",
+          ":jcr:data": 4136
+        }
+      },
+      "cq5dam.thumbnail.140.100.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Wed Jul 29 2020 19:33:01 GMT-0500",
+          ":jcr:data": 32316
+        }
+      },
+      "cq5dam.web.1280.1280.jpeg": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/jpeg",
+          "jcr:lastModified": "Wed Jul 29 2020 19:33:01 GMT-0500",
+          ":jcr:data": 140051
+        }
+      },
+      "original": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:mimeType": "image/jpeg",
+          "jcr:lastModified": "Wed Jul 29 2020 19:33:01 GMT-0500",
+          ":jcr:data": 118910
+        }
+      },
+      "cq5dam.thumbnail.319.319.png": {
+        "jcr:primaryType": "nt:file",
+        "jcr:createdBy": "admin",
+        "jcr:created": "Wed Jul 29 2020 19:33:01 GMT-0500",
+        "jcr:content": {
+          "jcr:primaryType": "oak:Resource",
+          "jcr:lastModifiedBy": "workflow-process-service",
+          "jcr:mimeType": "image/png",
+          "jcr:lastModified": "Wed Jul 29 2020 19:33:01 GMT-0500",
+          ":jcr:data": 160556
+        }
+      }
+    },
+    "related": {
+      "jcr:primaryType": "nt:unstructured"
+    },
+    "metadata": {
+      "jcr:primaryType": "nt:unstructured",
+      "jcr:mixinTypes": [
+        "cq:Taggable"
+      ],
+      "jcr:title": "Gray lava rock formation",
+      "dam:Physicalheightininches": "7.06944465637207",
+      "dam:Physicalwidthininches": "11.80555534362793",
+      "dam:Fileformat": "JPEG",
+      "dam:Progressive": "no",
+      "tiff:ImageLength": 509,
+      "tiff:YResolution": "72/1",
+      "jcr:lastModifiedBy": "admin",
+      "dam:extracted": "Wed Feb 20 2019 15:21:36 GMT+0100",
+      "dc:format": "image/jpeg",
+      "dc:description": "Gray lava rock formation",
+      "dam:Bitsperpixel": 24,
+      "dam:MIMEtype": "image/jpeg",
+      "dam:Physicalwidthindpi": 72,
+      "dam:Physicalheightindpi": 72,
+      "tiff:ResolutionUnit": 2,
+      "dc:modified": "Tue Feb 19 2019 22:04:49 GMT+0100",
+      "dam:Numberofimages": 1,
+      "tiff:XResolution": "72/1",
+      "jcr:lastModified": "Wed Feb 20 2019 15:21:38 GMT+0100",
+      "dam:Numberoftextualcomments": 0,
+      "tiff:ImageWidth": 850,
+      "dam:sha1": "63f383c4bdcff1cd17f82361275412cbcd5f01e0",
+      "dam:size": 695559,
+      "dc:title": "Gray lava rock formation",
+      "Iptc4xmpCore:CreatorContactInfo": {
+        "jcr:primaryType": "nt:unstructured"
+      }
+    }
+  }
+}

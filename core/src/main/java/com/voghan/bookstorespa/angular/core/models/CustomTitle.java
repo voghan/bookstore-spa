@@ -26,27 +26,22 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 
-@Component(value = "Title", name = "title",
-        inPlaceEditingActive=true, inPlaceEditingEditorType="title",
-        inPlaceEditingConfigPath="/apps/core/wcm/components/title/v2/title",
-        listeners = @Listener( name="afteredit", value = "REFRESH_PAGE"),
-        tabs = { @Tab(title = "Properties")})
 @Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomTitle.class,
         ComponentExporter.class }, resourceType = CustomTitle.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class CustomTitle implements Title {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/content/title";
+    public static final String RESOURCE_TYPE = "bookstore-spa/components/content/title";
 
     private final Logger logger = LoggerFactory.getLogger(CustomTitle.class);
 
-    @ValueMapValue
+    @ValueMapValue(name = "jcr:title")
     private String text;
 
     @ValueMapValue(name = "linkURL")
     private String linkUrl;
 
     @ValueMapValue
-    private boolean linkDisabled;
+    private String type;
 
     @SlingObject
     private SlingHttpServletRequest servletRequest;
@@ -54,48 +49,38 @@ public class CustomTitle implements Title {
     @ScriptVariable
     PageManager pageManager;
 
-    @ScriptVariable
     private Page currentPage;
 
     private Page linkPage;
 
     @PostConstruct
     public void initModel() {
-        //Using currentPage in a SPA app always returns the root page.
-        if (StringUtils.isBlank(text)) {
-            Page page = pageManager.getContainingPage(servletRequest.getResource().getPath());
-            text = StringUtils.defaultIfEmpty(page.getPageTitle(), page.getTitle());
-        }
+        currentPage = pageManager.getContainingPage(servletRequest.getResource().getPath());
         if(StringUtils.isNotBlank(linkUrl) && pageManager != null) {
             linkPage = pageManager.getPage(this.linkUrl);
         }
     }
 
-    @DialogField(fieldLabel = "Title", fieldDescription = "Leave empty to use the page title.",
-            ranking = 1D)
-    @TextField
     @Override
     public String getText() {
-        if (StringUtils.isBlank(text) && linkPage != null) {
-            text = linkPage.getTitle();
+        if ( this.text == null) {
+            if (StringUtils.isBlank(text) && linkPage != null) {
+                text = linkPage.getTitle();
+            } else {
+                text = StringUtils.defaultIfEmpty(currentPage.getPageTitle(), currentPage.getTitle());
+            }
         }
         return text;
     }
 
-    @DialogField(fieldLabel = "Link URL", fieldDescription = "Links the title. Path to a content page, external URL or page anchor.",
-            ranking = 3D)
-    @PathField(rootPath = "/content/bookstore-spa/us/en")
     @Override
     public String getLinkURL() {
         return linkUrl;
     }
 
-    @DialogField(fieldLabel = "Link Disabled", fieldDescription = "",
-            ranking = 4D)
-    @CheckBox(text = "Link Disabled")
     @Override
-    public boolean isLinkDisabled() {
-        return linkDisabled;
+    public String getType() {
+        return type;
     }
 
     @Override
