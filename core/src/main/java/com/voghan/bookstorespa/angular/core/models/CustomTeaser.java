@@ -4,11 +4,15 @@ import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.wcm.core.components.models.ListItem;
 import com.adobe.cq.wcm.core.components.models.Teaser;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -39,6 +43,12 @@ public class CustomTeaser implements Teaser {
     private String description;
 
     @ValueMapValue
+    private boolean titleFromPage;
+
+    @ValueMapValue
+    private boolean descriptionFromPage;
+
+    @ValueMapValue
     private String linkURL;
 
     @ValueMapValue
@@ -56,6 +66,11 @@ public class CustomTeaser implements Teaser {
     @Self
     private SlingHttpServletRequest request;
 
+    @ScriptVariable
+    private PageManager pageManager;
+
+    private Page targetPage;
+
     @PostConstruct
     public void initModel() {
         logger.info("......Teaser created...");
@@ -67,11 +82,19 @@ public class CustomTeaser implements Teaser {
 
     @Override
     public String getTitle() {
+        if (titleFromPage) {
+            logger.info("......Teaser titleFromPage...");
+            this.title = getTargetPage().getTitle();
+        }
         return this.title;
     }
 
     @Override
     public String getDescription() {
+        if (descriptionFromPage) {
+            logger.info("......Teaser descriptionFromPage...");
+            this.description = getTargetPage().getDescription();
+        }
         return this.description;
     }
 
@@ -108,4 +131,14 @@ public class CustomTeaser implements Teaser {
         return CustomTeaser.RESOURCE_TYPE;
     }
 
+    private Page getTargetPage() {
+        if (this.targetPage == null && pageManager != null) {
+            if (this.actionsEnabled) {
+                this.getActionItems().stream().findFirst().flatMap(ActionItem::getPage).orElse(null);
+            } else if(StringUtils.isNoneEmpty(linkURL)) {
+                targetPage = pageManager.getPage(this.linkURL);
+            }
+        }
+        return this.targetPage;
+    }
 }
