@@ -1,39 +1,55 @@
 import { MapTo } from '@adobe/cq-angular-editable-components';
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 const TeaserEditConfig = {
   emptyLabel: 'Teaser',
   isEmpty: cqModel =>
-    !cqModel || !cqModel.text || cqModel.text.trim().length < 1
+    !cqModel || !cqModel.title || cqModel.title.trim().length < 1
 };
 
 @Component({
   selector: 'app-teaser',
   templateUrl: './teaser.component.html',
-  styleUrls: ['./teaser.component.css']
+  styleUrls: ['./teaser.component.scss']
 })
 export class TeaserComponent implements OnInit {
-    @Input() src: string;
-    @Input() alt: string;
+
     @Input() title: string;
-    @Input() teaserTitle: string;
-    @Input() ctaLinkURL: string;
-    @Input() ctaText: string;
+    @Input() description: string;
+    @Input() linkURL: string;
+    @Input() actionsEnabled: boolean;
+    @Input() imagePath: string;
+    @Input() actions: TeaserAction[];
 
-    constructor() { }
-
-    get hasContent(): boolean {
-      return this.src && this.src.trim().length > 0;
-    }
-
-    get hasCTA(): boolean {
-      return this.ctaLinkURL && this.ctaLinkURL.trim().length > 0 && this.ctaText && this.ctaText.trim().length > 0;
-    }
+    constructor(private sanitizer: DomSanitizer) {}
 
     ngOnInit(): void {
     }
 
+    get hasContent(): boolean {
+      return this.title && this.title.trim().length > 0;
+    }
+
+    get hasImage(): boolean {
+      return this.imagePath && this.imagePath.trim().length > 0;
+    }
+
+    get teaserContentClass(): string {
+        if (this.hasImage) {
+            return 'teaser__content-has-image';
+        } else {
+            return 'teaser__content-no-image';
+        }
+    }
 }
+
+export class TeaserAction {
+
+    @Input() title: string;
+    @Input() url: string;
+}
+
 MapTo('bookstore-spa/components/content/teaser')(
     TeaserComponent,
     TeaserEditConfig

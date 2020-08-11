@@ -1,13 +1,21 @@
-<div class="teaser"  *ngIf="hasContent">
-    <app-image class="teaser__image" [src]="src" [alt]="alt" [title]="title"></app-image>
-    <div class="teaser__content">
-        <h2 class="teaser__title">
-            {{teaserTitle}}
-        </h2>
-        <div class="teaser__action-container" *ngIf="hasCTA">
-            <a [routerLink]="ctaLinkURL" class="teaser__action-link" [title]="ctaText">
-                {{ctaText}}
-            </a>
+<div class="teaser" *ngIf="hasContent">
+    <div class="teaser">
+        <div class="teaser__image" *ngIf="hasImage">
+            <div class="mage" >
+                <img [src]="imagePath" class="image__image" itemprop="contentUrl"  alt="Snowy mountain glacier" [title]="title">
+                <meta itemprop="caption" [content]="title">
+            </div>
+        </div>
+        <div class="{{teaserContentClass}}">
+            <h2 class="teaser__title">
+                <a class="teaser__title-link" [routerLink]="linkURL" [title]="title">{{title}}</a>
+            </h2>
+            <div class="teaser__description" [innerHTML]="description">
+            </div>
+            <div class="teaser__action-container" *ngIf="actionsEnabled">
+                <a class="teaser__action-link" *ngFor="let action of actions"
+                   [routerLink]="action.url">{{action.title}}</a>
+            </div>
         </div>
     </div>
 </div>
