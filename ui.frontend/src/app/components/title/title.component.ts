@@ -16,7 +16,6 @@ export class TitleComponent implements OnInit, AfterViewInit {
 
   @Input() text: string;
   @Input() linkURL: string;
-  @Input() linkDisabled: boolean;
 
   @Input() titleTemplate: TemplateRef<any>;
 

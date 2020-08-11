@@ -30,18 +30,18 @@ import javax.annotation.PostConstruct;
         ComponentExporter.class }, resourceType = CustomTitle.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class CustomTitle implements Title {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/content/title";
+    public static final String RESOURCE_TYPE = "bookstore-spa/components/content/title";
 
     private final Logger logger = LoggerFactory.getLogger(CustomTitle.class);
 
-    @ValueMapValue
+    @ValueMapValue(name = "jcr:title")
     private String text;
 
     @ValueMapValue(name = "linkURL")
     private String linkUrl;
 
     @ValueMapValue
-    private boolean linkDisabled;
+    private String type;
 
     @SlingObject
     private SlingHttpServletRequest servletRequest;
@@ -79,8 +79,8 @@ public class CustomTitle implements Title {
     }
 
     @Override
-    public boolean isLinkDisabled() {
-        return linkDisabled;
+    public String getType() {
+        return type;
     }
 
     @Override
