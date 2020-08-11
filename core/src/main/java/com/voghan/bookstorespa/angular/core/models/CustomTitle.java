@@ -59,8 +59,6 @@ public class CustomTitle implements Title {
         if(StringUtils.isNotBlank(linkUrl) && pageManager != null) {
             linkPage = pageManager.getPage(this.linkUrl);
         }
-        logger.info(".......text.." + text);
-        logger.info(".......linkPage.." + linkPage);
     }
 
     @Override
