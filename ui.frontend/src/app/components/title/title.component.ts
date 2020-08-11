@@ -41,7 +41,7 @@ export class TitleComponent implements OnInit, AfterViewInit {
   }
 
   get hasLink(): boolean {
-    return this.linkURL && this.linkURL.trim().length > 0 && !this.linkDisabled;
+    return this.linkURL && this.linkURL.trim().length > 0;
   }
 
 }
