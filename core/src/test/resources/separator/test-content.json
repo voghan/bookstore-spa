@@ -1,0 +1,35 @@
+{
+  "jcr:primaryType": "cq:Page",
+  "jcr:createdBy": "admin",
+  "jcr:created": "Tue Aug 11 2020 18:32:46 GMT-0500",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "jcr:createdBy": "admin",
+    "jcr:title": "Separator",
+    "cq:template": "/conf/bookstore-spa/settings/wcm/templates/spa-page-template",
+    "jcr:created": "Tue Aug 11 2020 18:32:46 GMT-0500",
+    "cq:lastModified": "Tue Aug 11 2020 18:32:57 GMT-0500",
+    "sling:resourceType": "bookstore-spa/components/structure/page",
+    "cq:lastModifiedBy": "admin",
+    "root": {
+      "jcr:primaryType": "nt:unstructured",
+      "sling:resourceType": "wcm/foundation/components/responsivegrid",
+      "responsivegrid": {
+        "jcr:primaryType": "nt:unstructured",
+        "jcr:createdBy": "admin",
+        "jcr:lastModifiedBy": "admin",
+        "jcr:created": "Mon Oct 22 2018 16:48:57 GMT+0530",
+        "jcr:lastModified": "Mon Oct 22 2018 16:49:29 GMT+0530",
+        "sling:resourceType": "wcm/foundation/components/responsivegrid",
+        "separator": {
+          "jcr:primaryType": "nt:unstructured",
+          "jcr:createdBy": "admin",
+          "jcr:lastModifiedBy": "admin",
+          "jcr:created": "Tue Aug 11 2020 18:32:57 GMT-0500",
+          "jcr:lastModified": "Tue Aug 11 2020 18:32:57 GMT-0500",
+          "sling:resourceType": "bookstore-spa/components/content/separator"
+        }
+      }
+    }
+  }
+}
