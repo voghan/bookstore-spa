@@ -51,6 +51,7 @@ Install Angular in the ui.frontend module
     npm install -g @angular/cli
 
 ui.frontend SCSS changes
+
     ng config schematics.@schematics/angular:component.styleext scss
     
     npm install normalize-scss --save

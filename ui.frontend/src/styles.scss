@@ -76,11 +76,8 @@ p {
     margin: 0 0 ($line-height-computed / 2);
     font-size: $font-size-base;
     line-height: $line-height-base + 1;
-    text-align: justify;
     color: $text-color;
 }
-
-
 
 ul {
     list-style-position: inside;

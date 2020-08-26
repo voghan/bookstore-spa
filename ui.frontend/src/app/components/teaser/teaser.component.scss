@@ -19,13 +19,14 @@
 
 .teaser__content-no-image {
     position: relative;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     min-height: 10rem;
     min-width: 15rem;
     padding: .75rem;
-    font-size: .8125rem;
+    font-size: $font-size-medium;
 }
 
 .teaser__content-has-image {
@@ -39,7 +40,7 @@
     min-height: 10rem;
     min-width: 15rem;
     padding: .75rem;
-    font-size: .8125rem;
+    font-size: $font-size-medium;
 }
 
 .teaser__description p {
@@ -57,5 +58,5 @@
     color: $white;
     margin: 1rem .75rem 0 0;
     padding: .5rem 1.125rem;
-    font-size: .75rem;
+    font-size: $font-size-medium;
 }
