@@ -1,10 +1,11 @@
 import { MapTo } from '@adobe/cq-angular-editable-components';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ListItem } from './list-item';
 
 const ListEditConfig = {
   emptyLabel: 'List',
   isEmpty: cqModel =>
-    !cqModel
+    !cqModel || !cqModel.items || cqModel.items.length < 1
 };
 
 @Component({
@@ -14,9 +15,15 @@ const ListEditConfig = {
 })
 export class ListComponent implements OnInit {
 
+  @Input() items: ListItem[];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get hasContent(): boolean {
+    return this.items && this.items.length > 0;
   }
 
 }

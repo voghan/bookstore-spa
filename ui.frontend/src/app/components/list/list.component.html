@@ -1,1 +1,5 @@
-<p>list works!</p>
+<div class="list" *ngIf="hasContent">
+    <div class="list__item" *ngFor="let item of items">
+        <app-button [text]="item.title" [link]="item.path" [buttonStyle]="'button__action__link'"></app-button>
+    </div>
+</div>
