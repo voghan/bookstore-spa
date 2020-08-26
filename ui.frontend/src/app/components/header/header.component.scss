@@ -31,6 +31,7 @@ $menu-toggle-color: $black;
     z-index: 100;
     display: flex;
     padding-left: $gutter-padding;
+    padding: $gutter-padding-left 0px 0px $gutter-padding;
 }
 
 .logo-img {

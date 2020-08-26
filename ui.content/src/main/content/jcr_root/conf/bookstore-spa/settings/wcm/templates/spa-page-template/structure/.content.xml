@@ -21,7 +21,7 @@
                 sling:resourceType="bookstore-spa/components/header"
                 collectAllPages="false"
                 navigationRoot="/content/bookstore-spa/us/en"
-                structureDepth="3"
+                structureDepth="2"
                 structureStart="1"/>
             <responsivegrid
                 jcr:primaryType="nt:unstructured"

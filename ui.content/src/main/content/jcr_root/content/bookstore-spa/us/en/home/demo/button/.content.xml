@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2020-08-25T19:13:39.752-05:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/bookstore-spa/settings/wcm/templates/spa-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Button"
+        sling:resourceType="bookstore-spa/components/structure/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <responsivegrid
+                jcr:created="{Date}2018-10-22T16:48:57.968+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-10-22T16:49:29.168+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <button_625771364
+                    jcr:created="{Date}2020-08-25T18:26:07.634-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-08-25T19:00:07.144-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Where is my text?"
+                    sling:resourceType="bookstore-spa/components/content/button"
+                    buttonStyle="button__action"
+                    link="/content/bookstore-spa/us/en/home/books">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="2"
+                            width="9"/>
+                    </cq:responsive>
+                </button_625771364>
+                <button_511447997
+                    jcr:created="{Date}2020-08-25T18:26:13.818-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-08-25T19:13:39.749-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Learn more"
+                    sling:resourceType="bookstore-spa/components/content/button"
+                    buttonStyle="button__action__box"
+                    link="/content/bookstore-spa/us/en/home/about-us">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="2"
+                            width="9"/>
+                    </cq:responsive>
+                </button_511447997>
+                <button
+                    jcr:created="{Date}2020-08-25T07:11:08.325-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-08-25T19:00:18.375-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Authors"
+                    sling:resourceType="bookstore-spa/components/content/button"
+                    accessibilityLabel="alt text"
+                    buttonStyle="button__action__link"
+                    link="/content/bookstore-spa/us/en/home/books">
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="2"
+                            width="9"/>
+                    </cq:responsive>
+                </button>
+            </responsivegrid>
+        </root>
+    </jcr:content>
+</jcr:root>

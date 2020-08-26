@@ -25,19 +25,19 @@ $font-family-sans-serif:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial,
 $font-family-serif:       "Asar",Georgia, "Times New Roman", Times, serif;
 $font-family-base:        $font-family-sans-serif;
 
-$font-size-xsmall:		  12px;
-$font-size-small:         14px;
-$font-size-medium:		  16px;
-$font-size-base:          18px;
-$font-size-large:         24px;
-$font-size-xlarge:        48px;
+$font-size-xsmall:		  0.625rem;
+$font-size-small:         0.875rem;
+$font-size-medium:		  1rem;
+$font-size-base:          1.25rem;
+$font-size-large:         1.65rem;
+$font-size-xlarge:        2.35rem;
 
-$font-size-h1:            40px;
-$font-size-h2:            36px;
-$font-size-h3:            24px;
-$font-size-h4:            16px;
-$font-size-h5:            14px;
-$font-size-h6:            10px;
+$font-size-h1:            3rem;
+$font-size-h2:            2.5rem;
+$font-size-h3:            2rem;
+$font-size-h4:            1.5rem;
+$font-size-h5:            1rem;
+$font-size-h6:            0.75rem;
 
 $font-weight-normal:     normal;
 $font-weight-bold:       600;
@@ -50,11 +50,12 @@ $brand-primary:             $orchid;
 $body-bg:                   $haze;
 $text-color:                $black;
 $text-color-inverse:        $gray-light;
-$link-color:                $blue;
+$link-color:                $spring;
 
 //Layout
-$max-width: 1024px;
+$max-width: 1440px;
 $header-height: 75px;
 
 // Spacing
 $gutter-padding: 12px;
+$gutter-padding-left: 6px;
