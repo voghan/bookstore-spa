@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2020-08-11T10:03:24.818-05:00"
+        cq:lastModified="{Date}2020-08-25T19:55:15.305-05:00"
         cq:lastModifiedBy="admin"
         cq:template="/conf/bookstore-spa/settings/wcm/templates/spa-page-template"
         jcr:primaryType="cq:PageContent"
@@ -21,13 +21,23 @@
                 <title
                     jcr:created="{Date}2020-08-11T10:02:57.146-05:00"
                     jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2020-08-11T10:03:24.816-05:00"
+                    jcr:lastModified="{Date}2020-08-25T19:54:35.544-05:00"
                     jcr:lastModifiedBy="admin"
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Sample Title"
                     sling:resourceType="bookstore-spa/components/content/title"
                     linkURL="/content/bookstore-spa/us/en/home/books"
                     type="h1"/>
+                <title_h3
+                    jcr:created="{Date}2020-08-11T10:02:57.146-05:00"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2020-08-25T19:55:15.304-05:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title=" Sample H3 Title "
+                    sling:resourceType="bookstore-spa/components/content/title"
+                    linkURL="/content/bookstore-spa/us/en/home/books"
+                    type="h3"/>
             </responsivegrid>
         </root>
     </jcr:content>

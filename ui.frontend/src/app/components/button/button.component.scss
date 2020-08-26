@@ -1,0 +1,37 @@
+@import "~src/styles/variables";
+
+:host-context {
+    display: block;
+}
+
+.button {
+    padding: 1rem;
+}
+
+.button__action {
+    border: 1px solid $orchid;
+    border-radius: 1px;
+    background: $orchid;
+    color: $white;
+    margin: 1rem .75rem 0 0;
+    padding: .5rem 1.125rem;
+    font-size: $font-size-medium;
+}
+
+.button__action__link {
+    border-bottom: 3px solid $orchid;
+    border-radius: 1px;
+    color: $orchid;
+    margin: 1rem .75rem 0 0;
+    padding: .5rem 1.125rem;
+    font-size: $font-size-medium;
+}
+
+.button__action__box {
+    border: 3px solid $orchid;
+    border-radius: 1px;
+    color: $orchid;
+    margin: 1rem .75rem 0 0;
+    padding: .5rem 1.125rem;
+    font-size: $font-size-medium;
+}

@@ -351,7 +351,7 @@
                         jcr:primaryType="nt:unstructured"
                         jcr:title="BookStore Spa App Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
-                        clientlibs="[wcm.foundation.components.page.responsive]"
+                        clientlibs="[bookstore-spa.angular]"
                         isRoot="{Boolean}true"
                         structureDepth="3"/>
             </spa>
