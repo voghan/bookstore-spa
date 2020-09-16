@@ -39,7 +39,7 @@ import static com.day.cq.commons.jcr.JcrConstants.NT_UNSTRUCTURED;
         resourceTypes=ButtonTagOptionsDataSource.RESOURCE_TYPE,
         methods= HttpConstants.METHOD_GET)
 @ServiceDescription("Button Style Servlet")
-public class ButtonTagOptionsDataSource extends SlingSafeMethodsServlet {
+public class ButtonTagOptionsDataSource extends AbstractOptionsDataSource {
     private final Logger logger = LoggerFactory.getLogger(ButtonTagOptionsDataSource.class);
     public static final String RESOURCE_TYPE = "bookstore-spa/components/datasource/button-style";
     private static final String FIELD_NAME = "button";
@@ -47,33 +47,7 @@ public class ButtonTagOptionsDataSource extends SlingSafeMethodsServlet {
     private static final Filter<Tag> TAG_FILTER_INCLUDE_ALL = tag -> true;
 
     @Override
-    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws
-            ServletException, IOException {
-        ResourceResolver resourceResolver = request.getResourceResolver();
-
-        List<Option> options = getOptions(request, "Default");
-
-        // transform the list of options into a list of synthetic resources
-        List<Resource> resources = options.stream().map(option -> {
-            Map<String, Object> map = Maps.newHashMapWithExpectedSize(options.size());
-
-            map.put("value", option.getValue());
-            map.put("text", option.getText());
-            logger.info(".........New Option");
-            logger.info(".........value -" + option.getValue());
-            logger.info(".........text -" + option.getText());
-
-            ValueMap valueMap = new ValueMapDecorator(map);
-
-            return new ValueMapResource(resourceResolver, new ResourceMetadata(), NT_UNSTRUCTURED, valueMap);
-        }).collect(Collectors.toList());
-
-        DataSource dataSource = new SimpleDataSource(resources.iterator());
-
-        request.setAttribute(DataSource.class.getName(), dataSource);
-    }
-
-    private List<Option> getOptions(SlingHttpServletRequest request, String defaultOption) {
+    protected List<Option> getOptions(SlingHttpServletRequest request, String defaultOption) {
         TagManager tagManager = request.getResourceResolver().adaptTo(TagManager.class);
         Tag containerTag = tagManager.resolve(getContainerTag());
 

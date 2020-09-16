@@ -56,6 +56,11 @@ ui.frontend SCSS changes
     
     npm install normalize-scss --save
 
+Create a new Angular component
+
+    ng generate component components/header
+   
+
 ## Testing
 
 There are three levels of testing contained in the project:

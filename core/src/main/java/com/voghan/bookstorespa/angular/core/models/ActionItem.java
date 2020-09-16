@@ -22,6 +22,9 @@ public class ActionItem implements Component, ListItem {
     @ValueMapValue
     private final String url;
 
+    @ValueMapValue
+    private final String target;
+
     private final Page page;
 
     protected ActionItem(final Resource resource) {
@@ -29,6 +32,7 @@ public class ActionItem implements Component, ListItem {
         ValueMap ctaProperties = resource.getValueMap();
         title = ctaProperties.get("text", String.class);
         url = ctaProperties.get("link", String.class);
+        target = ctaProperties.get("target", String.class);
 
         if (url != null && url.startsWith("/")) {
             PageManager pageManager = resource.getResourceResolver().adaptTo(PageManager.class);
@@ -50,6 +54,10 @@ public class ActionItem implements Component, ListItem {
     @Override
     public String getURL() {
         return url;
+    }
+
+    public String getTarget() {
+        return target;
     }
 
     protected Optional<Page> getPage() {
