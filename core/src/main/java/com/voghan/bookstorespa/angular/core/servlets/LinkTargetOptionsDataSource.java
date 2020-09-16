@@ -5,6 +5,7 @@ import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 import com.google.common.collect.Maps;
 import com.voghan.bookstorespa.angular.core.enums.CardStyle;
+import com.voghan.bookstorespa.angular.core.enums.LinkTarget;
 import com.voghan.bookstorespa.angular.core.models.Option;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -30,15 +31,14 @@ import static com.day.cq.commons.jcr.JcrConstants.NT_UNSTRUCTURED;
 
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
-        resourceTypes= CardStyleOptionsDataSource.RESOURCE_TYPE,
+        resourceTypes= LinkTargetOptionsDataSource.RESOURCE_TYPE,
         methods= HttpConstants.METHOD_GET)
-@ServiceDescription("Card Style Servlet")
-public class CardStyleOptionsDataSource extends AbstractOptionsDataSource {
-    private final Logger logger = LoggerFactory.getLogger(CardStyleOptionsDataSource.class);
-    public static final String RESOURCE_TYPE = "bookstore-spa/components/datasource/card-style";
+@ServiceDescription("Link Target Servlet")
+public class LinkTargetOptionsDataSource extends AbstractOptionsDataSource {
+    private final Logger logger = LoggerFactory.getLogger(LinkTargetOptionsDataSource.class);
+    public static final String RESOURCE_TYPE = "bookstore-spa/components/datasource/link-target";
 
-    @Override
-    List<Option> getOptions(SlingHttpServletRequest request, String defaultValue) {
-        return CardStyle.options();
+    protected List<Option> getOptions(SlingHttpServletRequest request, String defaultOption) {
+        return LinkTarget.options();
     }
 }
