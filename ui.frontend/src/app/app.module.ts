@@ -35,6 +35,7 @@ import { TitleComponent } from './components/title/title.component';
 import { SeparatorComponent } from './components/separator/separator.component';
 import { ListComponent } from './components/list/list.component';
 import { ButtonComponent } from './components/button/button.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 @NgModule({
   imports: [
@@ -45,9 +46,9 @@ import { ButtonComponent } from './components/button/button.component';
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
   declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent,
     NavigationComponent, CustomComponent, CardComponent, TeaserComponent, TitleComponent,
-    SeparatorComponent, ButtonComponent, ListComponent],
+    SeparatorComponent, ButtonComponent, ListComponent, TabsComponent],
   entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent, CustomComponent,
-    TeaserComponent, ButtonComponent, ListComponent],
+    TeaserComponent, ButtonComponent, ListComponent, TabsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
