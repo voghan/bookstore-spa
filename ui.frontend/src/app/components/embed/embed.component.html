@@ -1,0 +1,19 @@
+<ng-container *ngTemplateOutlet="embedTemplate ? embedTemplate : default"></ng-container>
+
+
+<ng-template #default>
+    <div class="title"><p>Not enabled</p>
+    </div>
+</ng-template>
+
+<ng-template #embedHtml>
+    <div  [innerHTML]="content"></div>
+</ng-template>
+
+<ng-template #embedUrl>
+    <div [innerHTML]="content"></div>
+</ng-template>
+
+<ng-template #embedEmbeddable>
+    <div [innerHTML]="content"></div>
+</ng-template>
