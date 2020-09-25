@@ -34,6 +34,7 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('.....Card');
   }
 
 }
