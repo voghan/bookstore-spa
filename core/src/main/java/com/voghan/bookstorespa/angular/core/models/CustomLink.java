@@ -2,8 +2,9 @@ package com.voghan.bookstorespa.angular.core.models;
 
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ExporterConstants;
-import com.adobe.cq.wcm.core.components.models.Button;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
@@ -13,17 +14,17 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomButton.class,
-        ComponentExporter.class }, resourceType = CustomButton.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomLink.class,
+        ComponentExporter.class }, resourceType = CustomLink.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 @Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
-public class CustomButton implements Button {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/content/button";
+public class CustomLink  implements ComponentExporter {
+    static final String RESOURCE_TYPE = "bookstore-spa/components/content/link";
 
     private final Logger logger = LoggerFactory.getLogger(CustomButton.class);
 
-    @ValueMapValue(name = "jcr:title")
+    @ValueMapValue
     private String text;
 
     @ValueMapValue
@@ -36,41 +37,48 @@ public class CustomButton implements Button {
     private String accessibilityLabel;
 
     @ValueMapValue
-    private String buttonStyle;
+    private String cssClass;
 
     @ScriptVariable
     private PageManager pageManager;
 
-    @Override
+    private Page linkPage;
+
+    @PostConstruct
+    public void initModel() {
+        if(StringUtils.isNotBlank(this.link) && pageManager != null) {
+            linkPage = pageManager.getPage(this.link);
+        }
+    }
+
     public String getText() {
-        return this.text;
+        if ( this.text == null && this.linkPage != null) {
+            text = linkPage.getTitle();
+        }
+        return text;
     }
 
-    @Override
     public String getLink() {
-        return this.link;
+        return link;
     }
 
-    @Override
     public String getIcon() {
-        return this.icon;
+        return icon;
     }
 
-    @Override
     public String getAccessibilityLabel() {
-        return this.accessibilityLabel;
+        return accessibilityLabel;
     }
 
-    public String getButtonStyle() {
-        return this.buttonStyle;
+    public String getCssClass() {
+        return cssClass;
     }
 
     public boolean isRoute() {
         return (pageManager.getPage(this.link) != null);
     }
 
-    @Override
     public String getExportedType() {
-        return CustomButton.RESOURCE_TYPE;
+        return CustomLink.RESOURCE_TYPE;
     }
 }

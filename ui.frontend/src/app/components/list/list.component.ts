@@ -20,6 +20,7 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('.....List');
   }
 
   get hasContent(): boolean {

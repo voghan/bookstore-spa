@@ -1,5 +1,19 @@
-<div class="button" *ngIf="hasContent">
-    <a [class]="buttonStyle" [routerLink]="link">
-        <span class="cmp-button__text">{{text}}</span>
-    </a>
-</div>
+<ng-container *ngTemplateOutlet="route ? routerButton : hrefButton"></ng-container>
+
+
+<ng-template #routerButton>
+    <div class="button" *ngIf="hasContent">
+        <a [class]="buttonStyle" [routerLink]="link">
+            <span class="cmp-button__text">{{text}}</span>
+        </a>
+    </div>
+</ng-template>
+
+
+<ng-template #hrefButton>
+    <div class="button" *ngIf="hasContent">
+        <a [class]="buttonStyle" [href]="link" target="_blank">
+            <span class="cmp-button__text">{{text}}</span>
+        </a>
+    </div>
+</ng-template>

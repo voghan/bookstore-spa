@@ -1,0 +1,9 @@
+<ng-container *ngTemplateOutlet="route ? internalLink : hrefLink" ></ng-container>
+
+<ng-template #internalLink>
+        <a [routerLink]="link" >{{text}}</a>
+</ng-template>
+
+<ng-template #hrefLink>
+        <a [href]="link" target="_blank" >{{text}}</a>
+</ng-template>
