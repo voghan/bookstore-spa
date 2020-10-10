@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit  } from '@angular/core';
 import {MapTo} from '@adobe/cq-angular-editable-components';
 
 const ButtonEditConfig = {
@@ -17,6 +17,7 @@ export class ButtonComponent implements OnInit {
   @Input() text: string;
   @Input() link: string;
   @Input() icon: string;
+  @Input() route = true;
   @Input() buttonStyle: string;
 
   constructor() { }
@@ -26,7 +27,6 @@ export class ButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('.....Button');
   }
 
 }
