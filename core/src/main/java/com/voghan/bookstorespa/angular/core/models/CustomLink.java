@@ -79,6 +79,6 @@ public class CustomLink  implements ComponentExporter {
     }
 
     public String getExportedType() {
-        return CustomButton.RESOURCE_TYPE;
+        return CustomLink.RESOURCE_TYPE;
     }
 }
