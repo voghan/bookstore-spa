@@ -30,15 +30,6 @@ public class CustomLink  implements ComponentExporter {
     @ValueMapValue
     private String link;
 
-    @ValueMapValue
-    private String icon;
-
-    @ValueMapValue
-    private String accessibilityLabel;
-
-    @ValueMapValue
-    private String cssClass;
-
     @ScriptVariable
     private PageManager pageManager;
 
@@ -60,18 +51,6 @@ public class CustomLink  implements ComponentExporter {
 
     public String getLink() {
         return link;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public String getAccessibilityLabel() {
-        return accessibilityLabel;
-    }
-
-    public String getCssClass() {
-        return cssClass;
     }
 
     public boolean isRoute() {

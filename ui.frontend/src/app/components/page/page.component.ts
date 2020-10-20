@@ -16,7 +16,7 @@
 
 import { Constants } from '@adobe/cq-angular-editable-components';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
 
 @Component({
@@ -25,11 +25,14 @@ import { ModelManagerService } from '../model-manager.service';
   templateUrl: './page.component.html'
 })
 export class PageComponent {
+  REDIRECT_PATH = 'redirectTarget';
   items;
   itemsOrder;
   path;
+  redirectTarget;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private modelManagerService: ModelManagerService
   ) {
@@ -39,6 +42,11 @@ export class PageComponent {
         this.path = data[Constants.PATH_PROP];
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
+        this.redirectTarget = data[this.REDIRECT_PATH];
+        if (this.redirectTarget) {
+          console.log(this.redirectTarget.page.path);
+          this.router.navigate([this.redirectTarget.page.path]);
+        }
       });
   }
 }
