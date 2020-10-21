@@ -46,8 +46,8 @@ export class PageComponent {
         if (this.redirectTarget) {
           if (Utils.isInEditor()) {
             console.log('redirecting to ' + this.redirectTarget.page.path);
-            this.router.navigate([this.redirectTarget.page.path]);
           }
+          this.router.navigate([this.redirectTarget.page.path]);
         }
       });
   }

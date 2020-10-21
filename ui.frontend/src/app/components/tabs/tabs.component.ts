@@ -81,5 +81,5 @@ export class TabsComponent extends AEMAllowedComponentsContainerComponent implem
 
 }
 
-MapTo('wknd-spa-angular/components/tabs')(TabsComponent, TabsEditConfig);
+MapTo('bookstore-spa/components/content/tabs')(TabsComponent, TabsEditConfig);
 
