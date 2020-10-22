@@ -26,6 +26,7 @@ export class TabsComponent extends AEMAllowedComponentsContainerComponent implem
     activeItemName ?: string;
     @Input() activeItem?: string;
     @Input() accessibilityLabel?: string;
+    @Input() header = 'Default';
 
     constructor(private changeDetectorRef: ChangeDetectorRef) {
         super();
