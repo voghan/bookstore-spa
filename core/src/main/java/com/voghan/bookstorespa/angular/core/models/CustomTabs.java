@@ -1,54 +1,79 @@
 package com.voghan.bookstorespa.angular.core.models;
 
 import com.adobe.cq.export.json.ComponentExporter;
-import com.adobe.cq.wcm.core.components.models.ListItem;
+import com.adobe.cq.export.json.ContainerExporter;
+import com.adobe.cq.export.json.SlingModelFilter;
 import com.adobe.cq.wcm.core.components.models.Tabs;
+import com.voghan.bookstorespa.angular.core.models.container.ContainerHelper;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.apache.sling.models.factory.ModelFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import javax.annotation.PostConstruct;
+import java.util.Map;
 
-@Model(adaptables = SlingHttpServletRequest.class, adapters = { CustomTabs.class,
-        ComponentExporter.class }, resourceType = CustomTabs.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = SlingHttpServletRequest.class,
+        adapters = { CustomTabs.class, ComponentExporter.class, ContainerExporter.class },
+        resourceType = CustomTabs.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class CustomTabs implements Tabs {
-    static final String RESOURCE_TYPE = "bookstore-spa/components/content/tabs2";
+    static final String RESOURCE_TYPE = "bookstore-spa/components/content/tabs";
 
     private final Logger logger = LoggerFactory.getLogger(CustomTabs.class);
+
+    @SlingObject
+    private SlingHttpServletRequest servletRequest;
+
+    @OSGiService
+    protected SlingModelFilter slingModelFilter;
+
+    @OSGiService
+    protected ModelFactory modelFactory;
 
     @ValueMapValue
     private String activeItem;
 
     @ValueMapValue
-    private String accessibilityLabel;
+    private String header;
 
-    @ValueMapValue
-    private List<ListItem> items;
+    private String activeItemName;
 
-    @ValueMapValue
-    private String backgroundStyle;
+    private ContainerHelper containerHelper;
 
     @Override
     public String getActiveItem() {
-        return this.activeItem;
+        if (this.activeItemName == null) {
+            Resource active = this.servletRequest.getResource().getChild(this.activeItem);
+            if (active != null) {
+                this.activeItemName = this.activeItem;
+            }
+        }
+
+        return this.activeItemName;
     }
 
-    @Override
-    public String getAccessibilityLabel() {
-        return this.accessibilityLabel;
+    public String getHeader() {
+        return header;
     }
 
-    @Override
-    public List<ListItem> getItems() {
-        return this.items;
+    public Map<String, ? extends ComponentExporter> getExportedItems() {
+        return containerHelper.getExportedItems();
     }
 
-    @Override
-    public String getBackgroundStyle() {
-        return this.backgroundStyle;
+    public String[] getExportedItemsOrder() {
+        return this.containerHelper.getExportedItemsOrder();
+    }
+
+    @PostConstruct
+    public void initModel() {
+        logger.warn("........create tabs ");
+        this.containerHelper = new ContainerHelper(servletRequest, slingModelFilter, modelFactory);
     }
 
     @Override

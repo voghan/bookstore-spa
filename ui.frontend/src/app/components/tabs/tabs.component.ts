@@ -26,6 +26,7 @@ export class TabsComponent extends AEMAllowedComponentsContainerComponent implem
     activeItemName ?: string;
     @Input() activeItem?: string;
     @Input() accessibilityLabel?: string;
+    @Input() header = 'Default';
 
     constructor(private changeDetectorRef: ChangeDetectorRef) {
         super();
@@ -81,5 +82,5 @@ export class TabsComponent extends AEMAllowedComponentsContainerComponent implem
 
 }
 
-MapTo('wknd-spa-angular/components/tabs')(TabsComponent, TabsEditConfig);
+MapTo('bookstore-spa/components/content/tabs')(TabsComponent, TabsEditConfig);
 
