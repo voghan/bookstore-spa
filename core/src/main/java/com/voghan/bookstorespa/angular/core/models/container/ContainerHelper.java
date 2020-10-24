@@ -107,7 +107,7 @@ public class ContainerHelper implements Container {
 
         });
         models.entrySet().forEach((entry) -> {
-            ListItem match = (ListItem)this.getItems().stream().filter((item) -> {
+            ResourceListItem match = (ResourceListItem)this.getItems().stream().filter((item) -> {
                 return item != null && StringUtils.isNotEmpty(item.getName()) && StringUtils.equals(item.getName(), (CharSequence)entry.getKey());
             }).findFirst().get();
             if (match != null) {
@@ -147,9 +147,9 @@ public class ContainerHelper implements Container {
         private ComponentExporter inner;
         private String panelTitle;
 
-        JsonWrapper(ComponentExporter inner, ListItem item) {
+        JsonWrapper(ComponentExporter inner, ResourceListItem item) {
             this.inner = inner;
-            this.panelTitle = item.getTitle();
+            this.panelTitle = item.getPanelTitle();
         }
 
         @JsonUnwrapped

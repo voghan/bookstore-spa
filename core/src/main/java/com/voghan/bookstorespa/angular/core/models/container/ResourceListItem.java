@@ -17,6 +17,7 @@ public class ResourceListItem implements ListItem {
     protected Calendar lastModified;
     protected String path;
     protected String name;
+    protected String panelTitle;
 
     public ResourceListItem(SlingHttpServletRequest request, Resource resource) {
         ValueMap valueMap = (ValueMap)resource.adaptTo(ValueMap.class);
@@ -24,6 +25,7 @@ public class ResourceListItem implements ListItem {
             this.title = (String)valueMap.get("jcr:title", String.class);
             this.description = (String)valueMap.get("jcr:description", String.class);
             this.lastModified = (Calendar)valueMap.get("jcr:lastModified", Calendar.class);
+            this.panelTitle = (String)valueMap.get("cq:panelTitle", String.class);
         }
 
         this.path = resource.getPath();
@@ -53,5 +55,9 @@ public class ResourceListItem implements ListItem {
 
     public String getName() {
         return this.name;
+    }
+
+    public String getPanelTitle() {
+        return panelTitle;
     }
 }
