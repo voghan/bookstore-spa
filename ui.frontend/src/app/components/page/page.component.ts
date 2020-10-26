@@ -44,10 +44,14 @@ export class PageComponent {
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.redirectTarget = data[this.REDIRECT_PATH];
         if (this.redirectTarget) {
-          if (Utils.isInEditor()) {
-            console.log('redirecting to ' + this.redirectTarget.page.path);
+          if (this.redirectTarget.page) {
+            this.router.navigate([this.redirectTarget.page.path]);
+          } else {
+            this.router.navigate(['/']).then(result => {
+                window.location.href = this.redirectTarget.url;
+            });
           }
-          this.router.navigate([this.redirectTarget.page.path]);
+
         }
       });
   }
