@@ -132,7 +132,7 @@ public class CustomTeaser implements Teaser {
     private Page getTargetPage() {
         if (this.targetPage == null && pageManager != null) {
             if (this.actionsEnabled) {
-                this.getActionItems().stream().findFirst().flatMap(ActionItem::getPage).orElse(null);
+                this.getActionItems().stream().findFirst().flatMap(ActionItem::getOptionalPage).orElse(null);
             } else if(StringUtils.isNoneEmpty(linkURL)) {
                 targetPage = pageManager.getPage(this.linkURL);
             }

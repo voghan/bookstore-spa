@@ -2,6 +2,7 @@ package com.voghan.bookstorespa.angular.core.models;
 
 import com.adobe.cq.wcm.core.components.models.Component;
 import com.adobe.cq.wcm.core.components.models.ListItem;
+import com.adobe.cq.wcm.core.components.models.NavigationItem;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import org.apache.sling.api.resource.Resource;
@@ -13,7 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
-public class ActionItem implements Component, ListItem {
+public class ActionItem implements NavigationItem {
     private final Logger logger = LoggerFactory.getLogger(ActionItem.class);
 
     @ValueMapValue
@@ -60,7 +61,15 @@ public class ActionItem implements Component, ListItem {
         return target;
     }
 
-    protected Optional<Page> getPage() {
+    public Page getPage() {
+        return page;
+    }
+
+    protected Optional<Page> getOptionalPage() {
         return Optional.ofNullable(this.page);
+    }
+
+    public boolean isRoute() {
+        return this.page != null;
     }
 }
