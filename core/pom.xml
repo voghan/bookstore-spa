@@ -187,6 +187,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>core.wcm.components.core</artifactId>
             <groupId>com.adobe.cq</groupId>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.aem</groupId>
+            <artifactId>spa.project.core.core</artifactId>
+        </dependency>
 
         <!-- Component annotations -->
         <dependency>

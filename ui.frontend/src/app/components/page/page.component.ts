@@ -45,7 +45,9 @@ export class PageComponent {
         this.redirectTarget = data[this.REDIRECT_PATH];
         if (this.redirectTarget) {
           if (this.redirectTarget.page) {
-            this.router.navigate([this.redirectTarget.page.path]);
+            this.router.navigate([this.redirectTarget.page.path],  {
+                    skipLocationChange: true
+                });
           } else {
             this.router.navigate(['/']).then(result => {
                 window.location.href = this.redirectTarget.url;
