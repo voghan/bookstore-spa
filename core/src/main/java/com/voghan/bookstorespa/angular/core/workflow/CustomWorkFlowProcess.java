@@ -10,7 +10,7 @@ import org.osgi.service.component.annotations.Component;
 
 @Component(
         service=WorkflowProcess.class,
-        property = {"process.label=Sample Application - Custom Workflow Process Step"}
+        property = {"process.label=Bookstore - Custom Workflow Process Step"}
 )
 public class CustomWorkFlowProcess implements WorkflowProcess {
 
