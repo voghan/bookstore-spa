@@ -101,14 +101,11 @@ hr {
    list-style: none;
    counter-reset: item;
  }
- .text__content ul {
-    list-style: none;
-  }
- .text__content li {
+ .text__content ol li {
    counter-increment: item;
    margin-bottom: 5px;
  }
- .text__content li:before {
+ .text__content ol li:before {
    margin-right: 10px;
    content: counter(item);
    background: lightblue;
@@ -118,3 +115,6 @@ hr {
    text-align: center;
    display: inline-block;
  }
+  .text__content ul {
+     list-style: none;
+    }
