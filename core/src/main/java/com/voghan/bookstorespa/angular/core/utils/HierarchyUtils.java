@@ -152,13 +152,14 @@ public class HierarchyUtils {
         if (childPageContentResource == null) {
             return null;
         } else {
-            TemplatedResource templatedResource = (TemplatedResource)((Resource)childPageContentResource).adaptTo(TemplatedResource.class);
+            TemplatedResource templatedResource = childPageContentResource.adaptTo(TemplatedResource.class);
             if (templatedResource != null) {
                 childPageContentResource = templatedResource;
             }
 
-            SlingHttpServletRequest wrapperRequest = createHierarchyServletRequest(slingRequestWrapper, childPage, (Page)null);
-            return (com.adobe.aem.spa.project.core.models.Page)modelFactory.getModelFromWrappedRequest(wrapperRequest, (Resource)childPageContentResource, com.adobe.aem.spa.project.core.models.Page.class);
+            SlingHttpServletRequest wrapperRequest = createHierarchyServletRequest(slingRequestWrapper, childPage, null);
+            Object model = modelFactory.getModelFromWrappedRequest(wrapperRequest, childPageContentResource, com.adobe.aem.spa.project.core.models.Page.class);
+            return (com.adobe.aem.spa.project.core.models.Page) model;
         }
     }
 

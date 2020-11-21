@@ -20,6 +20,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import './components/import-components';
 import { ModelManagerService } from './components/model-manager.service';
 import { PageComponent } from './components/page/page.component';
@@ -39,19 +41,50 @@ import { TabsComponent } from './components/tabs/tabs.component';
 import { EmbedComponent } from './components/embed/embed.component';
 import { LinkComponent } from './components/link/link.component';
 import { ArticleComponent } from './components/article/article.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     SpaAngularEditableComponentsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ModelManagerService, { provide: APP_BASE_HREF, useValue: '/' }],
-  declarations: [AppComponent, TextComponent, PageComponent, HeaderComponent, FooterComponent, ImageComponent,
-    NavigationComponent, CustomComponent, CardComponent, TeaserComponent, TitleComponent,
-    SeparatorComponent, ButtonComponent, ListComponent, TabsComponent, EmbedComponent, LinkComponent, ArticleComponent],
-  entryComponents: [TextComponent, PageComponent, ImageComponent, HeaderComponent, CustomComponent,
-    TeaserComponent, ButtonComponent, ListComponent, TabsComponent, EmbedComponent, LinkComponent, ArticleComponent],
+  declarations: [
+    AppComponent,
+    TextComponent,
+    PageComponent,
+    HeaderComponent,
+    FooterComponent,
+    ImageComponent,
+    NavigationComponent,
+    CustomComponent,
+    CardComponent,
+    TeaserComponent,
+    TitleComponent,
+    SeparatorComponent,
+    ButtonComponent,
+    ListComponent,
+    TabsComponent,
+    EmbedComponent,
+    LinkComponent,
+    ArticleComponent,
+    LoginComponent],
+  entryComponents: [
+    TextComponent,
+    PageComponent,
+    ImageComponent,
+    HeaderComponent,
+    CustomComponent,
+    TeaserComponent,
+    ButtonComponent,
+    ListComponent,
+    TabsComponent,
+    EmbedComponent,
+    LinkComponent,
+    ArticleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
