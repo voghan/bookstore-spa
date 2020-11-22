@@ -27,6 +27,9 @@ import {
   UrlSegment
 } from '@angular/router';
 import { PageComponent } from './components/page/page.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthorGuard } from './auth/author.guard';
+import { MemberGuard } from './auth/member.guard';
 
 export function AemPageMatcher(url: UrlSegment[]): UrlMatchResult {
   if (url.length) {

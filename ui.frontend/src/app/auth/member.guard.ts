@@ -7,16 +7,16 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class MemberGuard implements CanActivate {
 
   constructor(public auth: AuthenticationService, public router: Router) {}
 
-    canActivate(): boolean {
-      if (!this.auth.isAuthenticated()) {
-        this.router.navigate(['/content/bookstore-spa/us/en/home/login']);
-        return false;
-      }
-      return true;
+  canActivate(): boolean {
+    if (!this.auth.isAuthenticated()) {
+      this.router.navigate(['/content/bookstore-spa/us/en/home/books']);
+      return false;
     }
+    return true;
+  }
 
 }
