@@ -17,5 +17,5 @@ export const environment = {
   appRoot: '/content/bookstore-spa/us/en/home.html', // tslint:disable-line
   production: false,
   publicUrl: '/etc.clientlibs/bookstore-spa/clientlibs/clientlib-angular/resources',
-  apiUrl: 'http://localhost:4502'
+  apiUrl: 'http://localhost:4503'
 };

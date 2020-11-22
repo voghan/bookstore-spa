@@ -20,7 +20,7 @@ export class AuthenticationService {
     private router: Router,
     private http: HttpClient
   ) {
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+    this.userSubject = new BehaviorSubject<User>(null);
     this.user = this.userSubject.asObservable();
   }
 
@@ -28,44 +28,37 @@ export class AuthenticationService {
     return this.userSubject.value;
   }
 
-  login(username, password) {
+  public isAuthenticated(): boolean {
+      return !!this.userSubject.value;
+    }
+
+  login(username, password): Observable<any> {
 
     console.log('...auth service login');
-    console.log('..... username-' + username);
-    console.log('..... password-' + password);
-
-    return this.http.get<any>('http://localhost:4503/bin/authenticate').pipe(
-      map(user => {
-          console.log('..... user-' + user);
-          this.userSubject.next(user);
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('user', JSON.stringify(user));
-
-      }),
+    console.log('......calling ' + environment.apiUrl + '/bin/authenticate');
+    const token = 'eyJleHAiOjE2MDU5OTM1MTEsImlhdCI6MTYwNTk5MjkxMX0.7d8oGLEcfeLpHe9yO6KwZSX6PqgFtdrMa7Gp2UTbgek';
+    return this.http.post<any>(environment.apiUrl + '/bin/authenticate',  { username, password, token }).pipe(
+      map(response => this.extractData(response)),
       catchError(this.handleError)
     );
 
-//     console.log('......calling ' + ${environment.apiUrl} + '/bin/authenticate');
-//     return this.http.post<any>('http://localhost:4503/bin/authenticate', { username, password })
-//       .pipe(map(user => {
-//         console.log('..... user-' + user);
-//         // store user details and jwt token in local storage to keep user logged in between page refreshes
-//         localStorage.setItem('user', JSON.stringify(user));
-//
-//     }));
+  }
 
+  private extractData(user: User): any {
+    console.log('..... user-' + user);
+    this.userSubject.next(user);
+    // store user details and jwt token in local storage to keep user logged in between page refreshes
+    localStorage.setItem('user', JSON.stringify(user));
+    this.router.navigate(['/content/bookstore-spa/us/en/home/my-account']);
   }
 
   logout() {
     localStorage.removeItem('user');
   }
 
-  private extractData(res: Response): any {
-    const body = res;
-    return body || { };
-  }
-
   private handleError(error: HttpErrorResponse): any {
+    console.log('..... handleError-');
+    console.error(error);
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
