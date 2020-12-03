@@ -17,6 +17,6 @@
 import {
   AEMContainerComponent,
   MapTo
-} from '@adobe/cq-angular-editable-components';
+} from '@adobe/aem-angular-editable-components';
 
 MapTo('bookstore-spa/components/structure/spa')(AEMContainerComponent);

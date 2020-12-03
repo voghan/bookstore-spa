@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Utils } from '@adobe/cq-angular-editable-components';
+import { Utils } from '@adobe/aem-angular-editable-components';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthenticationService } from '../service/authentication.service';
