@@ -20,7 +20,7 @@ export class AuthenticationService {
     private router: Router,
     private http: HttpClient
   ) {
-    this.userSubject = new BehaviorSubject<User>(null);
+    this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
     this.user = this.userSubject.asObservable();
   }
 
@@ -53,6 +53,7 @@ export class AuthenticationService {
 
   logout() {
     localStorage.removeItem('user');
+    this.userSubject.next(null);
   }
 
   private handleError(error: HttpErrorResponse): any {
