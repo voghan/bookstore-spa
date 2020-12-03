@@ -44,9 +44,6 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.redirectTarget = data[this.REDIRECT_PATH];
-        if (Utils.isInEditor) {
-            console.log('......in editor');
-        }
 
         if (this.redirectTarget) {
           if (this.redirectTarget.page) {

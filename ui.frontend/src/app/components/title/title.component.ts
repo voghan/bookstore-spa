@@ -36,8 +36,6 @@ export class TitleComponent implements OnInit, AfterViewInit {
     } else {
       this.titleTemplate = this.titleOnlyTpl;
     }
-
-    console.log('titleTemplate-' + this.titleTemplate);
   }
 
   get hasLink(): boolean {

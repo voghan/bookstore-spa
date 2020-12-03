@@ -1,17 +1,9 @@
 package com.voghan.bookstorespa.angular.core.authentication;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Charsets;
-import com.google.common.net.MediaType;
 import com.voghan.bookstorespa.angular.core.servlets.AbstractJsonSlingServlet;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
-import org.apache.sling.api.servlets.HttpConstants;
-import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.servlets.annotations.SlingServletPaths;
-import org.apache.sling.servlets.annotations.SlingServletResourceTypes;
 import org.jetbrains.annotations.NotNull;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.propertytypes.ServiceDescription;
@@ -21,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 

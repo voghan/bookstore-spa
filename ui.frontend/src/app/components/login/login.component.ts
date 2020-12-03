@@ -41,11 +41,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
       this.submitted = true;
-      console.log('....form submitted');
       this.authService.login(this.f.username.value, this.f.password.value).subscribe(
         {
           next: () => {
-            console.log('....returned user - ' + this.user);
+            console.log('....returned user - ' + this.authService.userValue);
           }
         });
   }

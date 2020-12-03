@@ -42,6 +42,7 @@ import { EmbedComponent } from './components/embed/embed.component';
 import { LinkComponent } from './components/link/link.component';
 import { ArticleComponent } from './components/article/article.component';
 import { LoginComponent } from './components/login/login.component';
+import { MemberComponent } from './components/member/member.component';
 
 @NgModule({
   imports: [
@@ -71,7 +72,8 @@ import { LoginComponent } from './components/login/login.component';
     EmbedComponent,
     LinkComponent,
     ArticleComponent,
-    LoginComponent],
+    LoginComponent,
+    MemberComponent],
   entryComponents: [
     TextComponent,
     PageComponent,

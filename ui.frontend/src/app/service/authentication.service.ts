@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { User } from '../model/user';
 
 
@@ -35,7 +35,6 @@ export class AuthenticationService {
   login(username, password): Observable<any> {
 
     console.log('...auth service login');
-    console.log('......calling ' + environment.apiUrl + '/bin/authenticate');
     const token = 'eyJleHAiOjE2MDU5OTM1MTEsImlhdCI6MTYwNTk5MjkxMX0.7d8oGLEcfeLpHe9yO6KwZSX6PqgFtdrMa7Gp2UTbgek';
     return this.http.post<any>(environment.apiUrl + '/bin/authenticate',  { username, password, token }).pipe(
       map(response => this.extractData(response)),
@@ -45,7 +44,7 @@ export class AuthenticationService {
   }
 
   private extractData(user: User): any {
-    console.log('..... user-' + user);
+    console.log(user);
     this.userSubject.next(user);
     // store user details and jwt token in local storage to keep user logged in between page refreshes
     localStorage.setItem('user', JSON.stringify(user));
