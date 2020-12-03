@@ -38,10 +38,6 @@ describe('PageComponentComponent', () => {
   }));
 
   beforeEach(() => {
-    // Stub ModelManager
-//     spyOn(ModelManager, 'getData').and.callFake(() => {
-//       return Promise.resolve({});
-//     });
 
     fixture = TestBed.createComponent(PageComponent);
     component = fixture.componentInstance;
