@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants, Utils } from '@adobe/cq-angular-editable-components';
+import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
@@ -44,9 +44,6 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.redirectTarget = data[this.REDIRECT_PATH];
-        if (Utils.isInEditor) {
-            console.log('......in editor');
-        }
 
         if (this.redirectTarget) {
           if (this.redirectTarget.page) {

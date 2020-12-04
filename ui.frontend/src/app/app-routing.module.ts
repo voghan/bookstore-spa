@@ -17,7 +17,7 @@
 import {
   AemPageDataResolver,
   AemPageRouteReuseStrategy
-} from '@adobe/cq-angular-editable-components';
+} from '@adobe/aem-angular-editable-components';
 import { NgModule } from '@angular/core';
 import {
   RouteReuseStrategy,
@@ -27,6 +27,7 @@ import {
   UrlSegment
 } from '@angular/router';
 import { PageComponent } from './components/page/page.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export function AemPageMatcher(url: UrlSegment[]): UrlMatchResult {
   if (url.length) {
@@ -43,6 +44,7 @@ const routes: Routes = [
   {
     matcher: AemPageMatcher,
     component: PageComponent,
+    canActivate: [AuthGuard],
     resolve: {
       path: AemPageDataResolver
     }
@@ -57,7 +59,8 @@ const routes: Routes = [
     {
       provide: RouteReuseStrategy,
       useClass: AemPageRouteReuseStrategy
-    }
+    },
+    AuthGuard
   ]
 })
 export class AppRoutingModule {}

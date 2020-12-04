@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, ViewChild, TemplateRef } from '@angular/core';
-import {MapTo} from '@adobe/cq-angular-editable-components';
+import {MapTo} from '@adobe/aem-angular-editable-components';
 import { DomSanitizer } from '@angular/platform-browser';
 
 const EmbedEditConfig = {

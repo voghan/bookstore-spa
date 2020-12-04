@@ -14,8 +14,8 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { SpaAngularEditableComponentsModule } from '@adobe/cq-angular-editable-components';
-import { ModelManager } from '@adobe/cq-spa-page-model-manager';
+import { SpaAngularEditableComponentsModule } from '@adobe/aem-angular-editable-components';
+import { ModelManager } from '@adobe/aem-spa-page-model-manager';
 import { APP_BASE_HREF } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from '../../app-routing.module';
@@ -38,10 +38,6 @@ describe('PageComponentComponent', () => {
   }));
 
   beforeEach(() => {
-    // Stub ModelManager
-    spyOn(ModelManager, 'getData').and.callFake(() => {
-      return Promise.resolve({});
-    });
 
     fixture = TestBed.createComponent(PageComponent);
     component = fixture.componentInstance;
