@@ -1,5 +1,5 @@
 import {AfterViewInit, ChangeDetectorRef, Component, HostBinding, Input, OnInit} from '@angular/core';
-import {AEMAllowedComponentsContainerComponent, MapTo} from '@adobe/cq-angular-editable-components';
+import {AEMAllowedComponentsContainerComponent, MapTo} from '@adobe/aem-angular-editable-components';
 
 const CONTAINER_CLASS_NAMES = 'aem-tabs';
 

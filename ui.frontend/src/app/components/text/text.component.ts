@@ -1,4 +1,4 @@
-import { MapTo } from '@adobe/cq-angular-editable-components';
+import { MapTo } from '@adobe/aem-angular-editable-components';
 import { Component, Input, HostBinding } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -20,6 +20,8 @@ export class TextComponent {
   @Input() richText: boolean;
   @Input() text: string;
   @Input() itemName: string;
+
+  @HostBinding('class') class = 'text__content';
 
   @HostBinding('innerHtml') get content() {
     return this.richText

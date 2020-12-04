@@ -14,7 +14,7 @@
  ~ limitations under the License.
  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-import { Constants, Utils } from '@adobe/cq-angular-editable-components';
+import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
@@ -26,6 +26,7 @@ import { ModelManagerService } from '../model-manager.service';
 })
 export class PageComponent {
   REDIRECT_PATH = 'redirectTarget';
+  CONTENT_PATH = '/content/bookstore-spa/us';
   items;
   itemsOrder;
   path;
@@ -43,11 +44,18 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.redirectTarget = data[this.REDIRECT_PATH];
+
         if (this.redirectTarget) {
-          if (Utils.isInEditor()) {
-            console.log('redirecting to ' + this.redirectTarget.page.path);
+          if (this.redirectTarget.page) {
+            this.router.navigate([this.redirectTarget.page.path],  {
+                    skipLocationChange: true
+                });
+          } else {
+            this.router.navigate(['/']).then(result => {
+                window.location.href = this.redirectTarget.url;
+            });
           }
-          this.router.navigate([this.redirectTarget.page.path]);
+
         }
       });
   }

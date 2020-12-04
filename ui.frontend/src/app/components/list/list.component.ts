@@ -1,4 +1,4 @@
-import { MapTo } from '@adobe/cq-angular-editable-components';
+import { MapTo } from '@adobe/aem-angular-editable-components';
 import { Component, OnInit, Input } from '@angular/core';
 import { ListItem } from './list-item';
 
