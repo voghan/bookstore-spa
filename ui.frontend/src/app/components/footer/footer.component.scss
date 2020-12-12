@@ -5,5 +5,17 @@
 }
 
 .footer {
-    background-color: $lavender;
+    display: grid;
+    background-color: $brand-primary;
+    color: $spring;
+}
+
+.footer-container {
+    text-align: center;
+}
+
+.footer-title {
+    font-size: larger;
+    font-weight: bold;
+    color: $spring;
 }
