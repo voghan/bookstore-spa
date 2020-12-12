@@ -13,11 +13,11 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping">
             <responsivegrid_left
-                    cq:policy="wcm/foundation/components/responsivegrid/policy_1593524088794"
+                    cq:policy="wcm/foundation/components/responsivegrid/spa_responsivegrid_policy"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/core/components/policies/mapping"/>
             <responsivegrid_right
-                cq:policy="wcm/foundation/components/responsivegrid/policy_1593524088794"
+                cq:policy="wcm/foundation/components/responsivegrid/spa_responsivegrid_policy"
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="wcm/core/components/policies/mapping"/>
         </root>

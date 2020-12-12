@@ -343,7 +343,9 @@
                         jcr:title="BookStore Spa SPA Page Policy"
                         sling:resourceType="wcm/core/components/policy/policy"
                         clientlibs="[bookstore-spa.angular]">
-                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <jcr:content
+                            jcr:mixinTypes="[]"
+                            jcr:primaryType="nt:unstructured"/>
                 </policy_spa>
             </page>
             <spa jcr:primaryType="nt:unstructured">
@@ -355,66 +357,36 @@
                         isRoot="{Boolean}true"
                         structureDepth="3"/>
             </spa>
+            <structure jcr:primaryType="nt:unstructured">
+                <page jcr:primaryType="nt:unstructured">
+                    <spa_page_policy
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="SPA Page Policy"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            clientlibs="bookstore-spa.angular"
+                            structureDepth="3">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </spa_page_policy>
+                </page>
+            </structure>
         </components>
     </bookstore-spa>
     <wcm jcr:primaryType="nt:unstructured">
         <foundation jcr:primaryType="nt:unstructured">
             <components jcr:primaryType="nt:unstructured">
                 <responsivegrid jcr:primaryType="nt:unstructured">
-                    <policy_1593524088794
-                            jcr:lastModified="{Date}2020-07-21T18:53:11.399-05:00"
-                            jcr:lastModifiedBy="admin"
+                    <spa_responsivegrid_policy
                             jcr:primaryType="nt:unstructured"
                             jcr:title="BookStore Content"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[/apps/bookstore-spa/components/helloworld,/apps/bookstore-spa/components/image,/apps/bookstore-spa/components/text,/apps/bookstore-spa/components/title]">
-                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                            components="[group:BookStore Spa - Content,group:BookStore Spa - Structure]">
+                        <jcr:content
+                                jcr:mixinTypes="[]"
+                                jcr:primaryType="nt:unstructured"/>
                         <cq:authoring jcr:primaryType="nt:unstructured">
-                            <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                                <image
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="image/*"
-                                        droptarget="image"
-                                        resourceType="wcm/foundation/components/image"/>
-                                <product
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="product"
-                                        droptarget="product-data-reference"
-                                        resourceType="commerce/components/product"/>
-                                <document
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="[application/vnd.openxmlformats,application/msword,application/vnd.ms-powerpoint,application/mspowerpoint,application/powerpoint,application/x-mspowerpoint,application/x-msexcel,application/x-excel,application/excel,application/vnd.ms-excel,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document]"
-                                        droptarget="file"
-                                        resourceType="foundation/components/download"/>
-                                <video
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="video/*"
-                                        droptarget="video"
-                                        resourceType="foundation/components/video"/>
-                                <fragment
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="text/html"
-                                        droptarget="fragment"
-                                        resourceType="dam/cfm/components/contentfragment"/>
-                                <experiencefragment
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="content"
-                                        assetMimetype="text/html"
-                                        droptarget="experiencefragment"
-                                        resourceType="cq/experience-fragments/editor/components/experiencefragment"/>
-                                <mapping_1593524221634
-                                        jcr:primaryType="nt:unstructured"
-                                        assetGroup="media"
-                                        assetMimetype="image/*"
-                                        droptarget="image"
-                                        resourceType="bookstore-spa/components/conent/image"/>
-                            </assetToComponentMapping>
+                            <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                         </cq:authoring>
-                    </policy_1593524088794>
+                    </spa_responsivegrid_policy>
                 </responsivegrid>
                 <title jcr:primaryType="nt:unstructured"/>
                 <text jcr:primaryType="nt:unstructured"/>
