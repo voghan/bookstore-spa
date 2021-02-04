@@ -1,4 +1,4 @@
-package com.voghan.bookstorespa.angular.core.utils;
+package com.voghan.bookstorespa.angular.core.internal.impl;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.components.AnalyzeContext;

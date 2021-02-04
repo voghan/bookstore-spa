@@ -20,12 +20,14 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+console.log('.........main ' + location.pathname);
 if (environment.production) {
   enableProdMode();
 } else {
   // In development mode, redirect from "/" to app root
   if (location.pathname === '/' && environment.appRoot) {
-    location.href = environment.appRoot;
+    // location.href = environment.appRoot;
+    enableProdMode();
   }
 }
 

@@ -1,6 +1,7 @@
-package com.voghan.bookstorespa.angular.core.utils;
+package com.voghan.bookstorespa.angular.core.internal.impl.utils;
 
 import com.day.cq.wcm.api.designer.Style;
+import com.voghan.bookstorespa.angular.core.internal.HierarchyConstants;
 
 public class StyleUtils {
     private StyleUtils() {

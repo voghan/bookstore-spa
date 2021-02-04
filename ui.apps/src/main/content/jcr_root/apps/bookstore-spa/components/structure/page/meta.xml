@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jcr:root fileName="meta.xml" xmlns:jcr="http://www.jcp.org/jcr/1.0" jcr:primaryType="nt:unstructured" jcr:title="Meta"
+          mode="edit" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content xmlns:cq="http://www.day.com/jcr/cq/1.0" cq:hideOnEdit="{Boolean}false" cq:showOnCreate="{Boolean}false"
+             jcr:primaryType="nt:unstructured" jcr:title="Meta" margin="{Boolean}false" maximized="{Boolean}false"
+             sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <fixedColumns cq:hideOnEdit="{Boolean}false" cq:showOnCreate="{Boolean}false"
+                          jcr:primaryType="nt:unstructured"
+                          sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                <items jcr:primaryType="nt:unstructured">
+                    <column cq:hideOnEdit="{Boolean}false" cq:showOnCreate="{Boolean}false"
+                            jcr:primaryType="nt:unstructured" margin="{Boolean}false" maximized="{Boolean}false"
+                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <noIndex cq:hideOnEdit="{Boolean}false"
+                                     cq:showOnCreate="{Boolean}true"
+                                     disabled="{Boolean}false"
+                                     fieldDescription="Add NOINDEX metadata tag which instructs the search robots not to index the content of a page. Also used for excluding the page from uhc.com site search and the XML sitemap."
+                                     fieldLabel="No Index (hide in search and XML sitemap)"
+                                     ignoreData="{Boolean}false"
+                                     jcr:primaryType="nt:unstructured"
+                                     name="./noIndex"
+                                     offText="No"
+                                     onText="Yes"
+                                     renderReadOnly="{Boolean}true"
+                                     required="{Boolean}false"
+                                     sling:resourceType="granite/ui/components/coral/foundation/form/switch"/>
+                            <noFollow cq:hideOnEdit="{Boolean}false"
+                                      cq:showOnCreate="{Boolean}true"
+                                      disabled="{Boolean}false"
+                                      fieldDescription="Add NOFOLLOW metadata tag which instructs the search robots not to scan the page for links to follow."
+                                      fieldLabel="No Follow"
+                                      ignoreData="{Boolean}false"
+                                      jcr:primaryType="nt:unstructured"
+                                      name="./noFollow"
+                                      offText="No"
+                                      onText="Yes"
+                                      renderReadOnly="{Boolean}true"
+                                      required="{Boolean}false"
+                                      sling:resourceType="granite/ui/components/coral/foundation/form/switch"/>
+                        </items>
+                    </column>
+                </items>
+            </fixedColumns>
+        </items>
+    </content>
+</jcr:root>

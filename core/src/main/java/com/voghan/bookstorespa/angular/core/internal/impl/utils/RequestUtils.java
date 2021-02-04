@@ -1,6 +1,7 @@
-package com.voghan.bookstorespa.angular.core.utils;
+package com.voghan.bookstorespa.angular.core.internal.impl.utils;
 
 import com.day.cq.wcm.api.Page;
+import com.voghan.bookstorespa.angular.core.internal.HierarchyConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 

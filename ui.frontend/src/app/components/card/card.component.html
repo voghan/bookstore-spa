@@ -1,14 +1,20 @@
-<div class="card {{cardStyle}}"  *ngIf="hasContent">
-    <app-image class="card__image" [src]="src" [alt]="alt" [title]="title"></app-image>
-    <div class="card__content">
-        <h2 class="card__title">
-            {{cardTitle}}
-        </h2>
-        <span class="">{{cardText}}</span>
-        <div class="card__action-container" *ngIf="hasCTA">
-            <a [routerLink]="ctaLinkURL" class="card__action-link" [title]="ctaText">
-                {{ctaText}}
-            </a>
+<div class="card container-fluid"  *ngIf="hasContent">
+    <div class="row">
+        <div class="col-6">
+            <app-image class="card__image" [src]="src" [alt]="alt" [title]="title"></app-image>
+        </div>
+        <div class="col-6">
+            <div class="card__content">
+                <h2 class="card__title">
+                    {{cardTitle}}
+                </h2>
+                <span class="">{{cardText}}</span>
+                <div class="card__action-container" *ngIf="hasCTA">
+                    <a [routerLink]="ctaLinkURL" class="card__action-link" [title]="ctaText">
+                        {{ctaText}}
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

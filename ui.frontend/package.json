@@ -13,7 +13,7 @@
   "dependencies": {
     "@adobe/aem-angular-editable-components": "^1.0.6",
     "@adobe/aem-spa-component-mapping": "^1.0.7",
-    "@adobe/aem-spa-page-model-manager": "^1.2.3",
+    "@adobe/aem-spa-page-model-manager": "^1.2.4",
     "@angular/animations": "~9.1.11",
     "@angular/common": "~9.1.11",
     "@angular/compiler": "~9.1.11",
@@ -43,7 +43,7 @@
     "codelyzer": "^5.1.2",
     "jasmine-core": "^3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.1.0",
+    "karma": "^4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",

@@ -13,7 +13,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<base href="/content/bookstore-spa/us/">
+<base href="/">
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
      data-sly-call="${clientlib.css @ categories='bookstore-spa.base'}"/>
 <!--/*
@@ -28,7 +28,7 @@
 <meta
     property="cq:pagemodel_root_url"
     data-sly-use.page="com.adobe.aem.spa.project.core.models.Page"
-    content="${page.hierarchyRootJsonExportUrl}"
+    content="content/bookstore-spa/us/en.model.json"
 />
 
 <meta property="cq:datatype" data-sly-test="${wcmmode.edit || wcmmode.preview}" content="JSON" />

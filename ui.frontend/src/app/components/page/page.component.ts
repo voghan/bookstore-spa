@@ -44,7 +44,7 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.redirectTarget = data[this.REDIRECT_PATH];
-
+        console.log('.....page.....');
         if (this.redirectTarget) {
           if (this.redirectTarget.page) {
             this.router.navigate([this.redirectTarget.page.path],  {

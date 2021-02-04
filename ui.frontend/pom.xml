@@ -67,6 +67,7 @@
                         <configuration>
                             <!-- Create development/production build -->
                             <arguments>run build${build.environment}</arguments>
+<!--                            <arguments>run build:production</arguments>-->
                         </configuration>
                     </execution>
                 </executions>

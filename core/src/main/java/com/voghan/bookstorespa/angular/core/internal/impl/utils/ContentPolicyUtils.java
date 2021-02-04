@@ -1,4 +1,4 @@
-package com.voghan.bookstorespa.angular.core.utils;
+package com.voghan.bookstorespa.angular.core.internal.impl.utils;
 
 import com.day.cq.wcm.api.policies.ContentPolicy;
 import org.apache.sling.api.resource.ValueMap;

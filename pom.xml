@@ -49,7 +49,7 @@
         <bnd.version>5.0.0</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spa.project.core.version>1.0.10</spa.project.core.version>
+        <spa.project.core.version>1.1.0</spa.project.core.version>
         <component.plugin.version>7.0.0</component.plugin.version>
         <!--
           Environment for the NPM build. Possible values:

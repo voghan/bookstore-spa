@@ -1,4 +1,4 @@
-package com.voghan.bookstorespa.angular.core.utils;
+package com.voghan.bookstorespa.angular.core.internal.impl.utils;
 
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
@@ -7,6 +7,7 @@ import com.day.cq.wcm.api.components.ComponentContext;
 import com.day.cq.wcm.api.designer.Style;
 import com.day.cq.wcm.api.policies.ContentPolicy;
 import com.day.cq.wcm.api.policies.ContentPolicyManager;
+import com.voghan.bookstorespa.angular.core.internal.impl.HierarchyComponentContextWrapper;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.request.RequestParameter;
