@@ -18,6 +18,7 @@ import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main',
@@ -27,6 +28,7 @@ import { ModelManagerService } from '../model-manager.service';
 export class PageComponent {
   REDIRECT_PATH = 'redirectTarget';
   CONTENT_PATH = '/content/bookstore-spa/us';
+  PAGE_TITLE = 'title';
   items;
   itemsOrder;
   path;
@@ -35,7 +37,8 @@ export class PageComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private modelManagerService: ModelManagerService
+    private modelManagerService: ModelManagerService,
+    private titleService: Title
   ) {
     this.modelManagerService
       .getData({ path: this.route.snapshot.data.path })
@@ -43,6 +46,8 @@ export class PageComponent {
         this.path = data[Constants.PATH_PROP];
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
+        this.setTitle(data[this.PAGE_TITLE]);
+
         this.redirectTarget = data[this.REDIRECT_PATH];
         console.log('.....page.....');
         if (this.redirectTarget) {
@@ -58,5 +63,9 @@ export class PageComponent {
 
         }
       });
+  }
+
+  public setTitle(title: string) {
+    this.titleService.setTitle(title + ' | Bookstore Spa');
   }
 }
