@@ -18,7 +18,7 @@ import { Constants, Utils } from '@adobe/aem-angular-editable-components';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModelManagerService } from '../model-manager.service';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-main',
@@ -38,7 +38,8 @@ export class PageComponent {
     private router: Router,
     private route: ActivatedRoute,
     private modelManagerService: ModelManagerService,
-    private titleService: Title
+    private titleService: Title,
+    private metaService: Meta
   ) {
     this.modelManagerService
       .getData({ path: this.route.snapshot.data.path })
@@ -67,5 +68,13 @@ export class PageComponent {
 
   public setTitle(title: string) {
     this.titleService.setTitle(title + ' | Bookstore Spa');
+  }
+
+  public setMetaTags(keywords: string, description: string, robots: string) {
+    this.metaService.addTags([
+      {name: 'keywords', content: 'Angular, Universal, Example'},
+      {name: 'description', content: 'Angular Universal Example'},
+      {name: 'robots', content: 'index, follow'}
+    ]);
   }
 }
