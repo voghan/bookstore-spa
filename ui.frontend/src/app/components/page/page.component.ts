@@ -48,6 +48,7 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.setTitle(data[this.PAGE_TITLE]);
+        console.log(data);
 
         this.redirectTarget = data[this.REDIRECT_PATH];
         console.log('.....page.....');

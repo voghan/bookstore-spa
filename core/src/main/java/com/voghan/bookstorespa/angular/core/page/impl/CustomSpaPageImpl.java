@@ -1,14 +1,13 @@
-package com.voghan.bookstorespa.angular.core.internal.impl;
+package com.voghan.bookstorespa.angular.core.page.impl;
 
-import com.adobe.aem.spa.project.core.internal.impl.utils.HierarchyUtils;
-import com.adobe.aem.spa.project.core.internal.impl.utils.RequestUtils;
-import com.adobe.aem.spa.project.core.internal.impl.utils.StyleUtils;
 import com.adobe.aem.spa.project.core.models.Page;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ContainerExporter;
+import com.adobe.cq.export.json.hierarchy.HierarchyNodeExporter;
 import com.adobe.cq.wcm.core.components.models.NavigationItem;
 import com.day.cq.wcm.api.designer.Style;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.voghan.bookstorespa.angular.core.models.CustomSpaPage;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Exporter;
@@ -26,48 +25,40 @@ import javax.inject.Inject;
 import java.util.Calendar;
 import java.util.Map;
 
-@Model(
-        adaptables = {SlingHttpServletRequest.class},
-        adapters = {Page.class, ContainerExporter.class},
-        resourceType = {"spa-project-core/components/page"}
-)
-@Exporter(
-        name = "jackson",
-        extensions = {"json"}
-)
-public class CustomSpaPage implements Page {
-    static final String RESOURCE_TYPE = "spa-project-core/components/page";
+@Model(adaptables = {SlingHttpServletRequest.class},
+        adapters = {Page.class, ContainerExporter.class, CustomSpaPage.class},
+        resourceType = {"bookstore-spa/components/structure/page"})
+@Exporter(name = "jackson", extensions = {"json"})
+public class CustomSpaPageImpl implements CustomSpaPage {
+    static final String RESOURCE_TYPE = "bookstore-spa/components/structure/page";
+
     @ScriptVariable
-    @Via(
-            type = ResourceSuperType.class
-    )
+    @Via(type = ResourceSuperType.class)
     private com.day.cq.wcm.api.Page currentPage;
-    @ScriptVariable(
-            injectionStrategy = InjectionStrategy.OPTIONAL
-    )
+
+    @ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
     @JsonIgnore
-    @Via(
-            type = ResourceSuperType.class
-    )
+    @Via(type = ResourceSuperType.class)
     private Style currentStyle;
+
     @Inject
     private ModelFactory modelFactory;
+
     @Self
-    @Via(
-            type = ResourceSuperType.class
-    )
+    @Via(type = ResourceSuperType.class)
     private SlingHttpServletRequest request;
+
     @ScriptVariable
     private Resource resource;
+
     @Self
-    @Via(
-            type = ResourceSuperType.class
-    )
-    private com.adobe.cq.wcm.core.components.models.Page delegate;
+    @Via(type = ResourceSuperType.class)
+    private Page delegate;
+
     private Map<String, ? extends Page> descendedPageModels;
     private com.day.cq.wcm.api.Page rootPage;
 
-    public CustomSpaPage() {
+    public CustomSpaPageImpl() {
     }
 
     void setDescendedPageModels(Map<String, ? extends Page> descendedPageModels) {
@@ -80,16 +71,7 @@ public class CustomSpaPage implements Page {
 
     @Nullable
     public String getExportedHierarchyType() {
-        return "page";
-    }
-
-    @NotNull
-    public Map<String, ? extends Page> getExportedChildren() {
-        if (this.descendedPageModels == null) {
-            this.setDescendedPageModels(com.adobe.aem.spa.project.core.internal.impl.utils.HierarchyUtils.getDescendantsModels(this.request, this.currentPage, this.currentStyle, this.modelFactory));
-        }
-
-        return this.descendedPageModels;
+        return delegate.getExportedHierarchyType();
     }
 
     @NotNull
@@ -99,32 +81,17 @@ public class CustomSpaPage implements Page {
 
     @Nullable
     public String getHierarchyRootJsonExportUrl() {
-        if (this.isRootPage()) {
-            return com.adobe.aem.spa.project.core.internal.impl.utils.RequestUtils.getPageJsonExportUrl(this.request, this.currentPage);
-        } else {
-            if (this.rootPage == null) {
-                this.setRootPage(com.adobe.aem.spa.project.core.internal.impl.utils.HierarchyUtils.getRootPage(this.resource, this.currentPage));
-            }
-
-            return this.rootPage != null ? RequestUtils.getPageJsonExportUrl(this.request, this.rootPage) : null;
-        }
+        return delegate.getHierarchyRootJsonExportUrl();
     }
 
     @Nullable
     public Page getHierarchyRootModel() {
-        if (this.isRootPage()) {
-            return this;
-        } else {
-            if (this.rootPage == null) {
-                this.setRootPage(com.adobe.aem.spa.project.core.internal.impl.utils.HierarchyUtils.getRootPage(this.resource, this.currentPage));
-            }
-
-            return this.rootPage == null ? null : (Page)this.modelFactory.getModelFromWrappedRequest(HierarchyUtils.createHierarchyServletRequest(this.request, this.rootPage, this.currentPage), this.rootPage.getContentResource(), this.getClass());
-        }
+        return delegate.getHierarchyRootModel();
     }
 
-    private boolean isRootPage() {
-        return this.currentStyle != null && StyleUtils.isRootPage(this.currentStyle);
+    @Override
+    public Map<String, ? extends HierarchyNodeExporter> getExportedChildren() {
+        return delegate.getExportedChildren();
     }
 
     public String getLanguage() {
@@ -201,5 +168,20 @@ public class CustomSpaPage implements Page {
 
     public boolean hasCloudconfigSupport() {
         return this.delegate.hasCloudconfigSupport();
+    }
+
+    @Override
+    public String getPageTitle() {
+        return this.currentPage.getPageTitle();
+    }
+
+    @Override
+    public String getDescription() {
+        return this.currentPage.getDescription();
+    }
+
+    @Override
+    public String getMetaRobots() {
+        return "index, follow";
     }
 }

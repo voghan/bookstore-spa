@@ -82,7 +82,7 @@ public class CustomTeaser implements Teaser {
 
     @Override
     public String getTitle() {
-        if (titleFromPage) {
+        if (titleFromPage && getTargetPage() != null) {
             this.title = getTargetPage().getTitle();
         }
         return this.title;
