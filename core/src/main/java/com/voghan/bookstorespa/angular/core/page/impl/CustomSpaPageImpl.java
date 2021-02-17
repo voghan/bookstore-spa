@@ -3,32 +3,32 @@ package com.voghan.bookstorespa.angular.core.page.impl;
 import com.adobe.aem.spa.project.core.models.Page;
 import com.adobe.cq.export.json.ComponentExporter;
 import com.adobe.cq.export.json.ContainerExporter;
+import com.adobe.cq.export.json.ExporterConstants;
 import com.adobe.cq.export.json.hierarchy.HierarchyNodeExporter;
 import com.adobe.cq.wcm.core.components.models.NavigationItem;
-import com.day.cq.wcm.api.designer.Style;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.voghan.bookstorespa.angular.core.models.CustomSpaPage;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Via;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
-import org.apache.sling.models.factory.ModelFactory;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.inject.Inject;
+import javax.annotation.PostConstruct;
 import java.util.Calendar;
 import java.util.Map;
 
 @Model(adaptables = {SlingHttpServletRequest.class},
         adapters = {Page.class, ContainerExporter.class, CustomSpaPage.class},
-        resourceType = {"bookstore-spa/components/structure/page"})
-@Exporter(name = "jackson", extensions = {"json"})
+        resourceType = CustomSpaPageImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Exporter(name = ExporterConstants.SLING_MODEL_EXPORTER_NAME, extensions = ExporterConstants.SLING_MODEL_EXTENSION)
 public class CustomSpaPageImpl implements CustomSpaPage {
     static final String RESOURCE_TYPE = "bookstore-spa/components/structure/page";
 
@@ -36,42 +36,30 @@ public class CustomSpaPageImpl implements CustomSpaPage {
     @Via(type = ResourceSuperType.class)
     private com.day.cq.wcm.api.Page currentPage;
 
-    @ScriptVariable(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @JsonIgnore
-    @Via(type = ResourceSuperType.class)
-    private Style currentStyle;
-
-    @Inject
-    private ModelFactory modelFactory;
-
-    @Self
-    @Via(type = ResourceSuperType.class)
-    private SlingHttpServletRequest request;
-
-    @ScriptVariable
-    private Resource resource;
-
     @Self
     @Via(type = ResourceSuperType.class)
     private Page delegate;
 
-    private Map<String, ? extends Page> descendedPageModels;
-    private com.day.cq.wcm.api.Page rootPage;
+    private boolean noIndex;
+
+    private boolean noFollow;
 
     public CustomSpaPageImpl() {
     }
 
-    void setDescendedPageModels(Map<String, ? extends Page> descendedPageModels) {
-        this.descendedPageModels = descendedPageModels;
-    }
+    @PostConstruct
+    public void initModel() {
+        ValueMap pageProperties = this.currentPage.getProperties();
+        if (pageProperties != null) {
+            this.noIndex = pageProperties.get("noIndex", false);
+            this.noFollow = pageProperties.get("noFollow", false);
+        }
 
-    void setRootPage(com.day.cq.wcm.api.Page rootPage) {
-        this.rootPage = rootPage;
     }
 
     @Nullable
     public String getExportedHierarchyType() {
-        return delegate.getExportedHierarchyType();
+        return this.delegate.getExportedHierarchyType();
     }
 
     @NotNull
@@ -81,17 +69,17 @@ public class CustomSpaPageImpl implements CustomSpaPage {
 
     @Nullable
     public String getHierarchyRootJsonExportUrl() {
-        return delegate.getHierarchyRootJsonExportUrl();
+        return this.delegate.getHierarchyRootJsonExportUrl();
     }
 
     @Nullable
     public Page getHierarchyRootModel() {
-        return delegate.getHierarchyRootModel();
+        return this.delegate.getHierarchyRootModel();
     }
 
     @Override
     public Map<String, ? extends HierarchyNodeExporter> getExportedChildren() {
-        return delegate.getExportedChildren();
+        return this.delegate.getExportedChildren();
     }
 
     public String getLanguage() {
@@ -181,7 +169,20 @@ public class CustomSpaPageImpl implements CustomSpaPage {
     }
 
     @Override
-    public String getMetaRobots() {
-        return "index, follow";
+    public String getRobots() {
+        StringBuilder robots = new StringBuilder();
+        if (noIndex) {
+            robots.append("noIndex,");
+        } else {
+            robots.append("index,");
+        }
+
+        if (noFollow) {
+            robots.append(" noFollow");
+        } else {
+            robots.append(" follow");
+        }
+
+        return robots.toString();
     }
 }

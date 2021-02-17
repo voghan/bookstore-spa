@@ -6,7 +6,7 @@ public interface CustomSpaPage extends Page {
 
     String getPageTitle();
 
-    String getMeatDescription();
+    String getDescription();
 
-    String getMetaRobots();
+    String getRobots();
 }
