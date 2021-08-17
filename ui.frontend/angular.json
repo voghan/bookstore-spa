@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/assets",
               "src/favicon.ico",
@@ -26,23 +26,15 @@
               "src/logo512.png",
               "src/manifest.json"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
-            "dev": {
-              "assets": [
-                "src/mocks",
-                "src/assets",
-                "src/favicon.ico",
-                "src/logo192.png",
-                "src/logo512.png",
-                "src/manifest.json"
-              ]
+            "aem-develop": {
+              "deployUrl": "/etc.clientlibs/bookstore-spa/clientlibs/clientlib-angular/resources/"
             },
             "production": {
+              "deployUrl": "/etc.clientlibs/bookstore-spa/clientlibs/clientlib-angular/resources/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -54,6 +46,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -75,7 +68,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-app:build:dev"
+            "browserTarget": "angular-app:build"
           },
           "configurations": {
             "production": {
@@ -103,34 +96,24 @@
               "src/logo512.png",
               "src/manifest.json"
             ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
+            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
         }
       }
+
+
+    }
     }
   },
-  "defaultProject": "angular-app",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  },
-  "cli": {
-    "analytics": "fc936eda-f801-45b0-ac49-26341cd98db3"
+  "defaultProject": "angular-app"
   }
-}
+
+
+

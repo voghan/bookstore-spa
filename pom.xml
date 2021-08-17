@@ -31,8 +31,6 @@
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.content</module>
-        <module>it.tests</module>
-        <module>it.launcher</module>
         <module>dispatcher</module>
     </modules>
 
@@ -56,7 +54,8 @@
           - "" in development (=> `npm run build`)
           - ":production" in production (=> `npm run build:production`)
         -->
-        <build.environment />
+        <build.environment/>
+<!--        <build.environment>:production</build.environment>-->
         <aem.sdk.api>2020.6.3766.20200619T110731Z-200604</aem.sdk.api>
     </properties>
 

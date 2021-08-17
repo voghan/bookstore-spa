@@ -1,7 +1,7 @@
 mvn -B archetype:generate \
  -D archetypeGroupId=com.adobe.granite.archetypes \
  -D archetypeArtifactId=aem-project-archetype \
- -D archetypeVersion=23 \
+ -D archetypeVersion=29 \
  -D aemVersion=6.5.0 \
  -D frontendModule=angular \
  -D appTitle="BookStore Spa" \

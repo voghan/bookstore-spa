@@ -38,7 +38,7 @@ export class AuthenticationService {
     const token = 'eyJleHAiOjE2MDU5OTM1MTEsImlhdCI6MTYwNTk5MjkxMX0.7d8oGLEcfeLpHe9yO6KwZSX6PqgFtdrMa7Gp2UTbgek';
     return this.http.post<any>(environment.apiUrl + '/bin/authenticate',  { username, password, token }).pipe(
       map(response => this.extractData(response)),
-      catchError(this.handleError)
+      catchError(error => this.handleError(error))
     );
 
   }
