@@ -71,7 +71,7 @@ public class CardTest {
     @Test
     void testCtaLinkURL() {
         assertNotNull(card);
-        assertEquals(TARGET_CARD_PAGE_PATH + ".html", card.getCtaLinkURL());
+        assertEquals(TARGET_CARD_PAGE_PATH, card.getCtaLinkURL());
     }
 
     @Test

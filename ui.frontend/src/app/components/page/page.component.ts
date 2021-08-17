@@ -29,6 +29,8 @@ export class PageComponent {
   REDIRECT_PATH = 'redirectTarget';
   CONTENT_PATH = '/content/bookstore-spa/us';
   PAGE_TITLE = 'title';
+  META_DESC = 'description';
+  META_ROBOTS = 'robots';
   items;
   itemsOrder;
   path;
@@ -48,6 +50,9 @@ export class PageComponent {
         this.items = data[Constants.ITEMS_PROP];
         this.itemsOrder = data[Constants.ITEMS_ORDER_PROP];
         this.setTitle(data[this.PAGE_TITLE]);
+        console.log(data);
+        this.setDescription(data[this.META_DESC]);
+        this.setRobots(data[this.META_ROBOTS]);
 
         this.redirectTarget = data[this.REDIRECT_PATH];
         console.log('.....page.....');
@@ -70,11 +75,11 @@ export class PageComponent {
     this.titleService.setTitle(title + ' | Bookstore Spa');
   }
 
-  public setMetaTags(keywords: string, description: string, robots: string) {
-    this.metaService.addTags([
-      {name: 'keywords', content: 'Angular, Universal, Example'},
-      {name: 'description', content: 'Angular Universal Example'},
-      {name: 'robots', content: 'index, follow'}
-    ]);
+  public setDescription(description: string) {
+    this.metaService.updateTag({name: 'description', content: description});
   }
+
+  public setRobots(robots: string) {
+      this.metaService.updateTag({name: 'robots', content: robots});
+    }
 }

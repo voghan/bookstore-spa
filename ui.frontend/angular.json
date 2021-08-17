@@ -18,7 +18,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "aot": false,
             "assets": [
               "src/assets",
               "src/favicon.ico",
@@ -27,22 +27,17 @@
               "src/manifest.json"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
           },
           "configurations": {
-            "dev": {
-              "assets": [
-                "src/mocks",
-                "src/assets",
-                "src/favicon.ico",
-                "src/logo192.png",
-                "src/logo512.png",
-                "src/manifest.json"
-              ]
+            "aem-develop": {
+              "deployUrl": "/etc.clientlibs/bookstore-spa/clientlibs/clientlib-angular/resources/"
             },
             "production": {
+              "deployUrl": "/etc.clientlibs/bookstore-spa/clientlibs/clientlib-angular/resources/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -54,6 +49,7 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
+              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -75,7 +71,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-app:build:dev"
+            "browserTarget": "angular-app:build"
           },
           "configurations": {
             "production": {
@@ -104,6 +100,7 @@
               "src/manifest.json"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -125,12 +122,7 @@
     }
   },
   "defaultProject": "angular-app",
-  "schematics": {
-    "@schematics/angular:component": {
-      "styleext": "scss"
-    }
-  },
   "cli": {
-    "analytics": "fc936eda-f801-45b0-ac49-26341cd98db3"
+    "analytics": "82f042cd-f804-451a-83f5-eb9ae7f68afe"
   }
 }

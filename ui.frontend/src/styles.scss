@@ -97,24 +97,36 @@ hr {
     max-width: $max-width;
 }
 
- .text__content ol {
-   list-style: none;
-   counter-reset: item;
- }
- .text__content ol li {
-   counter-increment: item;
-   margin-bottom: 5px;
- }
- .text__content ol li:before {
-   margin-right: 10px;
-   content: counter(item);
-   background: lightblue;
-   border-radius: 100%;
-   color: white;
-   width: 1.2em;
-   text-align: center;
-   display: inline-block;
- }
-  .text__content ul {
-     list-style: none;
-    }
+.aem-container {
+  display: block;
+}
+
+.component-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+.text__content ol {
+ list-style: none;
+ counter-reset: item;
+}
+.text__content ol li {
+ counter-increment: item;
+ margin-bottom: 5px;
+}
+.text__content ol li:before {
+ margin-right: 10px;
+ content: counter(item);
+ background: lightblue;
+ border-radius: 100%;
+ color: white;
+ width: 1.2em;
+ text-align: center;
+ display: inline-block;
+}
+.text__content ul {
+ list-style: none;
+}

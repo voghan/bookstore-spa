@@ -91,7 +91,7 @@ public class Card implements Image {
 
     public String getCtaLinkURL() {
         if(cardPage != null) {
-            return cardPage.getPath() + ".html";
+            return cardPage.getPath();
         }
         return null;
     }
