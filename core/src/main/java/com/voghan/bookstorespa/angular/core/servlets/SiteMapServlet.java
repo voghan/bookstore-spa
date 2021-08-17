@@ -25,11 +25,11 @@ import java.util.Iterator;
         methods= HttpConstants.METHOD_GET,
         selectors = "sitemap",
         extensions="xml")
-@ServiceDescription("Simple Demo Servlet")
-public class SitemapServlet extends SlingSafeMethodsServlet {
+@ServiceDescription("Site Map Servlet")
+public class SiteMapServlet extends SlingSafeMethodsServlet {
     private static final long serialVersionUID = -536784266512058118L;
 
-    private static final Logger log = LoggerFactory.getLogger(SitemapServlet.class);
+    private static final Logger log = LoggerFactory.getLogger(SiteMapServlet.class);
 
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
