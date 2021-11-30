@@ -55,6 +55,8 @@ ui.frontend SCSS changes
     ng config schematics.@schematics/angular:component.styleext scss
     
     npm install normalize-scss --save
+    
+    npm install boostrap --save
 
 Create a new Angular component
 
